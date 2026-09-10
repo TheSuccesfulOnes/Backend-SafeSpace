@@ -1,0 +1,108 @@
+package com.experimentos.backend.survey.application;
+
+import com.experimentos.backend.iam.domain.User;
+import com.experimentos.backend.iam.infrastructure.UserRepository;
+import com.experimentos.backend.shared.security.CurrentUser;
+import com.experimentos.backend.survey.domain.*;
+import com.experimentos.backend.survey.infrastructure.*;
+import com.experimentos.backend.survey.interfaces.SurveyDtos;
+import java.util.List;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class SurveyService {
+    private final SurveyRepository surveys;
+    private final SurveyAnswerRepository answers;
+    private final UserRepository users;
+
+    public SurveyService(
+            SurveyRepository surveys, SurveyAnswerRepository answers, UserRepository users) {
+        this.surveys = surveys;
+        this.answers = answers;
+        this.users = users;
+    }
+
+    @Transactional(readOnly = true)
+    public List<SurveyDtos.SurveyResponse> published() {
+        Long currentUserId = currentUser().getId();
+        return surveys.findByStatusOrderByIdDesc(SurveyStatus.PUBLISHED).stream()
+                .map(survey -> toResponse(survey, currentUserId))
+                .toList();
+    }
+
+    /** Lists all survey states for the HR management view. */
+    @Transactional(readOnly = true)
+    public List<SurveyDtos.SurveyResponse> managed() {
+        return surveys.findAllByOrderByIdDesc().stream()
+                .map(survey -> toResponse(survey, null))
+                .toList();
+    }
+
+    @Transactional
+    public SurveyDtos.SurveyResponse create(SurveyDtos.CreateSurveyRequest request) {
+        User creator = currentUser();
+        Survey survey =
+                surveys.save(
+                        new Survey(
+                                request.title().trim(),
+                                request.question().trim(),
+                                request.type(),
+                                request.allowComments(),
+                                creator));
+        return toResponse(survey, null);
+    }
+
+    @Transactional
+    public SurveyDtos.SurveyResponse publish(Long id) {
+        Survey survey = find(id);
+        survey.publish();
+        return toResponse(survey, null);
+    }
+
+    @Transactional
+    public SurveyDtos.SurveyResponse close(Long id) {
+        Survey survey = find(id);
+        survey.close();
+        return toResponse(survey, null);
+    }
+
+    @Transactional
+    public void answer(Long id, SurveyDtos.AnswerRequest request) {
+        Survey survey = find(id);
+        if (survey.getStatus() != SurveyStatus.PUBLISHED)
+            throw new IllegalArgumentException("Survey is not open");
+        User user = currentUser();
+        if (answers.findBySurveyIdAndUserId(id, user.getId()).isPresent())
+            throw new IllegalArgumentException("Survey has already been answered");
+        answers.save(new SurveyAnswer(survey, user, request.answerText().trim()));
+    }
+
+    private SurveyDtos.SurveyResponse toResponse(Survey survey, Long currentUserId) {
+        boolean answered =
+                currentUserId != null
+                        && answers.findBySurveyIdAndUserId(survey.getId(), currentUserId)
+                                .isPresent();
+        return new SurveyDtos.SurveyResponse(
+                survey.getId(),
+                survey.getTitle(),
+                survey.getQuestion(),
+                survey.getType(),
+                survey.getStatus().name(),
+                survey.isAllowComments(),
+                answers.countBySurveyId(survey.getId()),
+                answered);
+    }
+
+    private Survey find(Long id) {
+        return surveys.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Survey was not found"));
+    }
+
+    private User currentUser() {
+        return users.findByUsernameIgnoreCaseOrEmailIgnoreCase(
+                        CurrentUser.username(), CurrentUser.username())
+                .orElseThrow(
+                        () -> new IllegalArgumentException("Authenticated user was not found"));
+    }
+}
