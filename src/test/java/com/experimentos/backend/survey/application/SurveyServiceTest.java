@@ -7,6 +7,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.experimentos.backend.comment.domain.Comment;
+import com.experimentos.backend.comment.infrastructure.CommentRepository;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.Role;
@@ -33,6 +35,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 class SurveyServiceTest {
     @Mock SurveyRepository surveys;
     @Mock SurveyAnswerRepository answers;
+    @Mock CommentRepository comments;
     @Mock UserRepository users;
 
     @AfterEach
@@ -78,10 +81,35 @@ class SurveyServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Survey has already been answered");
         verify(answers, never()).save(any());
+        verify(comments, never()).save(any());
+    }
+
+    @Test
+    void surveyAnswerIsAlsoPublishedAsAnAnonymousRootComment() {
+        User employee = user(2L, "maria", Role.EMPLOYEE);
+        Survey survey = survey(10L, employee);
+        when(users.findByUsernameIgnoreCaseOrEmailIgnoreCase("maria", "maria"))
+                .thenReturn(Optional.of(employee));
+        when(surveys.findById(10L)).thenReturn(Optional.of(survey));
+        when(answers.findBySurveyIdAndUserId(10L, 2L)).thenReturn(Optional.empty());
+        when(answers.save(any(SurveyAnswer.class)))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+        when(comments.save(any(Comment.class)))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+        authenticateAs("maria");
+
+        service().answer(10L, new SurveyDtos.AnswerRequest("  Feeling good  "));
+
+        var commentCaptor = org.mockito.ArgumentCaptor.forClass(Comment.class);
+        verify(comments).save(commentCaptor.capture());
+        Comment publishedComment = commentCaptor.getValue();
+        assertThat(publishedComment.getSurvey()).isSameAs(survey);
+        assertThat(publishedComment.getParent()).isNull();
+        assertThat(publishedComment.getContent()).isEqualTo("Feeling good");
     }
 
     private SurveyService service() {
-        return new SurveyService(surveys, answers, users);
+        return new SurveyService(surveys, answers, comments, users);
     }
 
     private Survey survey(Long id, User creator) {

@@ -1,10 +1,15 @@
 package com.experimentos.backend.survey.application;
 
+import com.experimentos.backend.comment.domain.Comment;
+import com.experimentos.backend.comment.infrastructure.CommentRepository;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.CurrentUser;
-import com.experimentos.backend.survey.domain.*;
-import com.experimentos.backend.survey.infrastructure.*;
+import com.experimentos.backend.survey.domain.Survey;
+import com.experimentos.backend.survey.domain.SurveyAnswer;
+import com.experimentos.backend.survey.domain.SurveyStatus;
+import com.experimentos.backend.survey.infrastructure.SurveyAnswerRepository;
+import com.experimentos.backend.survey.infrastructure.SurveyRepository;
 import com.experimentos.backend.survey.interfaces.SurveyDtos;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -14,12 +19,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class SurveyService {
     private final SurveyRepository surveys;
     private final SurveyAnswerRepository answers;
+    private final CommentRepository comments;
     private final UserRepository users;
 
     public SurveyService(
-            SurveyRepository surveys, SurveyAnswerRepository answers, UserRepository users) {
+            SurveyRepository surveys,
+            SurveyAnswerRepository answers,
+            CommentRepository comments,
+            UserRepository users) {
         this.surveys = surveys;
         this.answers = answers;
+        this.comments = comments;
         this.users = users;
     }
 
@@ -75,7 +85,9 @@ public class SurveyService {
         User user = currentUser();
         if (answers.findBySurveyIdAndUserId(id, user.getId()).isPresent())
             throw new IllegalArgumentException("Survey has already been answered");
-        answers.save(new SurveyAnswer(survey, user, request.answerText().trim()));
+        String answerText = request.answerText().trim();
+        answers.save(new SurveyAnswer(survey, user, answerText));
+        comments.save(new Comment(survey, user, null, answerText));
     }
 
     private SurveyDtos.SurveyResponse toResponse(Survey survey, Long currentUserId) {
