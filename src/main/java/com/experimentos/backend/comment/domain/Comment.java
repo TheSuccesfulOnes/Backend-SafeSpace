@@ -56,6 +56,10 @@ public class Comment {
         return parent;
     }
 
+    public boolean isOwnedBy(Long userId) {
+        return user != null && user.getId().equals(userId);
+    }
+
     public String getContent() {
         return content;
     }

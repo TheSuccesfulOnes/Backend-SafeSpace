@@ -13,5 +13,6 @@ public final class CommentDtos {
             String content,
             Instant createdAt,
             long likes,
+            boolean canDelete,
             java.util.List<CommentResponse> replies) {}
 }

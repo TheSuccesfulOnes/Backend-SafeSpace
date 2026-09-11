@@ -1,7 +1,9 @@
 package com.experimentos.backend.comment.application;
 
 import com.experimentos.backend.comment.domain.Comment;
-import com.experimentos.backend.comment.infrastructure.*;
+import com.experimentos.backend.comment.infrastructure.CommentLikeEntity;
+import com.experimentos.backend.comment.infrastructure.CommentLikeRepository;
+import com.experimentos.backend.comment.infrastructure.CommentRepository;
 import com.experimentos.backend.comment.interfaces.CommentDtos;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
@@ -9,6 +11,7 @@ import com.experimentos.backend.shared.security.CurrentUser;
 import com.experimentos.backend.survey.domain.Survey;
 import com.experimentos.backend.survey.infrastructure.SurveyRepository;
 import java.util.List;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,8 +35,9 @@ public class CommentService {
 
     @Transactional(readOnly = true)
     public List<CommentDtos.CommentResponse> list(Long surveyId) {
+        User currentUser = currentUser();
         return comments.findBySurveyIdAndParentIsNullOrderByIdAsc(surveyId).stream()
-                .map(this::toResponse)
+                .map(comment -> toResponse(comment, currentUser.getId()))
                 .toList();
     }
 
@@ -53,9 +57,13 @@ public class CommentService {
                                         () ->
                                                 new IllegalArgumentException(
                                                         "Parent comment was not found"));
+        if (parent != null && !parent.getSurvey().getId().equals(surveyId)) {
+            throw new IllegalArgumentException("Parent comment does not belong to this survey");
+        }
         User user = currentUser();
         return toResponse(
-                comments.save(new Comment(survey, user, parent, request.content().trim())));
+                comments.save(new Comment(survey, user, parent, request.content().trim())),
+                user.getId());
     }
 
     @Transactional
@@ -69,16 +77,32 @@ public class CommentService {
         else likes.save(new CommentLikeEntity(commentId, userId));
     }
 
-    private CommentDtos.CommentResponse toResponse(Comment comment) {
+    @Transactional
+    public void delete(Long surveyId, Long commentId) {
+        Comment comment =
+                comments.findById(commentId)
+                        .orElseThrow(() -> new IllegalArgumentException("Comment was not found"));
+        if (!comment.getSurvey().getId().equals(surveyId)) {
+            throw new IllegalArgumentException("Comment does not belong to this survey");
+        }
+        User user = currentUser();
+        if (!comment.isOwnedBy(user.getId())) {
+            throw new AccessDeniedException("Only the comment author can delete this comment");
+        }
+        comments.delete(comment);
+    }
+
+    private CommentDtos.CommentResponse toResponse(Comment comment, Long currentUserId) {
         List<CommentDtos.CommentResponse> replies =
                 comments.findByParentIdOrderByIdAsc(comment.getId()).stream()
-                        .map(this::toResponse)
+                        .map(reply -> toResponse(reply, currentUserId))
                         .toList();
         return new CommentDtos.CommentResponse(
                 comment.getId(),
                 comment.getContent(),
                 comment.getCreatedAt(),
                 likes.countByCommentId(comment.getId()),
+                comment.isOwnedBy(currentUserId),
                 replies);
     }
 

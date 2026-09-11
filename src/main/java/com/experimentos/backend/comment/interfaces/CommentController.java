@@ -30,4 +30,9 @@ public class CommentController {
     public void like(@PathVariable Long commentId) {
         service.like(commentId);
     }
+
+    @DeleteMapping("/{commentId}")
+    public void delete(@PathVariable Long surveyId, @PathVariable Long commentId) {
+        service.delete(surveyId, commentId);
+    }
 }
