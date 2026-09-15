@@ -66,6 +66,7 @@ public class AdminActivityService {
         }
         activity.update(
                 required(request.title()), normalizeNullable(request.description()), optionLabels);
+        activities.save(activity);
         auditService.record(actor, "UPDATE_ACTIVITY", "ACTIVITY", id.toString());
         return toResponse(activity);
     }
@@ -94,6 +95,7 @@ public class AdminActivityService {
         User actor = currentAdmin();
         WeeklyActivity activity = find(id);
         transition.accept(activity);
+        activities.save(activity);
         auditService.record(actor, action, "ACTIVITY", id.toString());
         return toResponse(activity);
     }

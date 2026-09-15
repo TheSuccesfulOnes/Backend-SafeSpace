@@ -43,6 +43,14 @@ public class CommentLikeEntity {
             this.userId = userId;
         }
 
+        public Long commentId() {
+            return commentId;
+        }
+
+        public Long userId() {
+            return userId;
+        }
+
         @Override
         public boolean equals(Object other) {
             if (this == other) return true;

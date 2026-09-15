@@ -3,3 +3,6 @@ target/
 *.iml
 .env
 application-local-secrets.yml
+*firebase-adminsdk*.json
+firebase-service-account*.json
+service-account*.json

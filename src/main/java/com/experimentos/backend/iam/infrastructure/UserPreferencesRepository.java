@@ -1,6 +1,13 @@
 package com.experimentos.backend.iam.infrastructure;
 
 import com.experimentos.backend.iam.domain.UserPreferences;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
+import com.google.cloud.firestore.Firestore;
+import org.springframework.stereotype.Repository;
 
-public interface UserPreferencesRepository extends JpaRepository<UserPreferences, Long> {}
+@Repository
+public class UserPreferencesRepository extends AbstractFirestoreRepository<UserPreferences, Long> {
+    public UserPreferencesRepository(Firestore firestore) {
+        super(firestore, UserPreferences.class, "user_preferences");
+    }
+}

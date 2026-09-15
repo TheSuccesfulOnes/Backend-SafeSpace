@@ -1,13 +1,47 @@
 package com.experimentos.backend.activity.infrastructure;
 
 import com.experimentos.backend.activity.domain.ActivityVote;
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
+import com.google.cloud.firestore.Firestore;
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ActivityVoteRepository extends JpaRepository<ActivityVote, ActivityVote.VoteId> {
-    Optional<ActivityVote> findByActivityIdAndUserId(Long activityId, Long userId);
+@Repository
+public class ActivityVoteRepository extends AbstractFirestoreRepository<ActivityVote, ActivityVote.VoteId> {
+    public ActivityVoteRepository(Firestore firestore) {
+        super(firestore, ActivityVote.class, "activity_votes");
+    }
 
-    long countByActivityId(Long activityId);
+    public Optional<ActivityVote> findByActivityIdAndUserId(Long activityId, Long userId) {
+        return readAll().stream()
+                .filter(
+                        vote ->
+                                activityId.equals(readField(vote, "activityId"))
+                                        && userId.equals(readField(vote, "userId")))
+                .findFirst();
+    }
 
-    long countByOptionId(Long optionId);
+    public long countByActivityId(Long activityId) {
+        return readAll().stream().filter(vote -> activityId.equals(readField(vote, "activityId"))).count();
+    }
+
+    public long countByOptionId(Long optionId) {
+        return readAll().stream()
+                .filter(vote -> readField(vote, "option") != null)
+                .filter(vote -> optionId.equals(readField(readField(vote, "option"), "id")))
+                .count();
+    }
+
+    @Override
+    protected String documentId(ActivityVote entity, Object id) {
+        return readField(entity, "activityId") + "_" + readField(entity, "userId");
+    }
+
+    public boolean existsById(ActivityVote.VoteId id) {
+        return findByActivityIdAndUserId(id.activityId(), id.userId()).isPresent();
+    }
+
+    public void deleteById(ActivityVote.VoteId id) {
+        super.deleteById(id.activityId() + "_" + id.userId());
+    }
 }

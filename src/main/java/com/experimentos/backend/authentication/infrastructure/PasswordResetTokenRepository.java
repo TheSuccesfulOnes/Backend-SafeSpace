@@ -1,16 +1,31 @@
 package com.experimentos.backend.authentication.infrastructure;
 
 import com.experimentos.backend.authentication.domain.PasswordResetToken;
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
+import com.google.cloud.firestore.Firestore;
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-public interface PasswordResetTokenRepository extends JpaRepository<PasswordResetToken, Long> {
-    Optional<PasswordResetToken> findByTokenHash(String tokenHash);
+@Repository
+public class PasswordResetTokenRepository extends AbstractFirestoreRepository<PasswordResetToken, Long> {
+    public PasswordResetTokenRepository(Firestore firestore) {
+        super(firestore, PasswordResetToken.class, "password_reset_tokens");
+    }
 
-    @Modifying
-    @Query("delete from PasswordResetToken token where token.user.id = :userId")
-    void deleteByUserId(@Param("userId") Long userId);
+    public Optional<PasswordResetToken> findByTokenHash(String tokenHash) {
+        return readAll().stream()
+                .filter(token -> tokenHash.equals(readField(token, "tokenHash")))
+                .findFirst();
+    }
+
+    public void deleteByUserId(Long userId) {
+        readAll().stream()
+                .filter(
+                        token -> {
+                            Object user = readField(token, "user");
+                            return user != null && userId.equals(readField(user, "id"));
+                        })
+                .toList()
+                .forEach(this::delete);
+    }
 }

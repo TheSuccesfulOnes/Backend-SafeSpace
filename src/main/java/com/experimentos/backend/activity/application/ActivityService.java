@@ -48,7 +48,9 @@ public class ActivityService {
 
     @Transactional
     public void close(Long id) {
-        find(id).close();
+        WeeklyActivity activity = find(id);
+        activity.close();
+        activities.save(activity);
     }
 
     @Transactional

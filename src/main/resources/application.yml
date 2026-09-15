@@ -2,13 +2,12 @@ spring:
   application:
     name: backend-api
   profiles:
-    active: local
+    active: ${SPRING_PROFILES_ACTIVE:local}
   jackson:
     property-naming-strategy: SNAKE_CASE
-  jpa:
-    open-in-view: false
-  flyway:
-    enabled: true
+  sql:
+    init:
+      mode: never
   servlet:
     multipart:
       max-file-size: 10MB
@@ -17,7 +16,12 @@ spring:
 server:
   port: ${PORT:8080}
 
+firebase:
+  project-id: ${FIREBASE_PROJECT_ID:safespace-dev-f82ac}
+
 app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:3001,http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174,http://localhost:5175,http://127.0.0.1:5175}
   jwt:
     secret: ${JWT_SECRET:local-development-secret-key-must-be-at-least-32-characters}
     expiration-minutes: ${JWT_EXPIRATION_MINUTES:30}

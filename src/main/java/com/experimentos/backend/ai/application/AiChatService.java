@@ -64,6 +64,7 @@ public class AiChatService {
             throw new IllegalArgumentException("Conversation title cannot be blank");
         }
         conversation.rename(title);
+        conversations.save(conversation);
         return new AiDtos.ConversationResponse(conversation.getId(), conversation.getTitle());
     }
 

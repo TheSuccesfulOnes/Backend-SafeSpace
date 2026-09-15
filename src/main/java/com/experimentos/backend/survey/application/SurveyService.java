@@ -67,6 +67,7 @@ public class SurveyService {
     public SurveyDtos.SurveyResponse publish(Long id) {
         Survey survey = find(id);
         survey.publish();
+        surveys.save(survey);
         return toResponse(survey, null);
     }
 
@@ -74,6 +75,7 @@ public class SurveyService {
     public SurveyDtos.SurveyResponse close(Long id) {
         Survey survey = find(id);
         survey.close();
+        surveys.save(survey);
         return toResponse(survey, null);
     }
 

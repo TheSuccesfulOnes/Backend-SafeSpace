@@ -52,6 +52,7 @@ public class ReportService {
                 reports.findById(id)
                         .orElseThrow(() -> new IllegalArgumentException("Report was not found"));
         report.updateStatus(request.status());
+        reports.save(report);
         return toResponse(report);
     }
 

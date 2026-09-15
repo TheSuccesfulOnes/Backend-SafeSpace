@@ -103,6 +103,7 @@ public class AdminService {
                     normalizedRequired(request.displayName(), "Display name"));
         }
         if (request.role() != null) changeRole(actor, user, request.role());
+        users.save(user);
         auditService.record(actor, "UPDATE_USER", "USER", id.toString());
         return AdminDtos.UserSummary.from(user);
     }
@@ -113,6 +114,7 @@ public class AdminService {
         User user = findUser(id);
         ensureCanManageAccount(actor, user);
         user.enable();
+        users.save(user);
         auditService.record(actor, "ENABLE_USER", "USER", id.toString());
         return AdminDtos.UserSummary.from(user);
     }
@@ -123,6 +125,7 @@ public class AdminService {
         User user = findUser(id);
         ensureCanChangeAdministrativeState(actor, user);
         user.disable();
+        users.save(user);
         auditService.record(actor, "DISABLE_USER", "USER", id.toString());
         return AdminDtos.UserSummary.from(user);
     }
@@ -133,6 +136,7 @@ public class AdminService {
         User user = findUser(id);
         ensureCanManageAccount(actor, user);
         user.changePassword(passwordEncoder.encode(request.newPassword()));
+        users.save(user);
         auditService.record(actor, "RESET_PASSWORD", "USER", id.toString());
     }
 

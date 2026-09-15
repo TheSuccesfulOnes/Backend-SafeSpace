@@ -1,11 +1,40 @@
 package com.experimentos.backend.comment.infrastructure;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import com.google.cloud.firestore.Firestore;
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
+import java.util.Optional;
+import org.springframework.stereotype.Repository;
 
-public interface CommentLikeRepository
-        extends JpaRepository<CommentLikeEntity, CommentLikeEntity.CommentLikeId> {
-    @Query("select count(l) from CommentLikeEntity l where l.commentId = :commentId")
-    long countByCommentId(@Param("commentId") Long commentId);
+@Repository
+public class CommentLikeRepository
+        extends AbstractFirestoreRepository<CommentLikeEntity, CommentLikeEntity.CommentLikeId> {
+    public CommentLikeRepository(Firestore firestore) {
+        super(firestore, CommentLikeEntity.class, "comment_likes");
+    }
+
+    public long countByCommentId(Long commentId) {
+        return readAll().stream().filter(like -> commentId.equals(readField(like, "commentId"))).count();
+    }
+
+    public boolean existsById(CommentLikeEntity.CommentLikeId id) {
+        return findByKey(id).isPresent();
+    }
+
+    public void deleteById(CommentLikeEntity.CommentLikeId id) {
+        super.deleteById(id.commentId() + "_" + id.userId());
+    }
+
+    @Override
+    protected String documentId(CommentLikeEntity entity, Object id) {
+        return readField(entity, "commentId") + "_" + readField(entity, "userId");
+    }
+
+    private Optional<CommentLikeEntity> findByKey(CommentLikeEntity.CommentLikeId id) {
+        return readAll().stream()
+                .filter(
+                        like ->
+                                id.commentId().equals(readField(like, "commentId"))
+                                        && id.userId().equals(readField(like, "userId")))
+                .findFirst();
+    }
 }

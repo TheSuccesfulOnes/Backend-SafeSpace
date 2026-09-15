@@ -1,14 +1,28 @@
 package com.experimentos.backend.survey.infrastructure;
 
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
 import com.experimentos.backend.survey.domain.Survey;
 import com.experimentos.backend.survey.domain.SurveyStatus;
+import com.google.cloud.firestore.Firestore;
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface SurveyRepository extends JpaRepository<Survey, Long> {
-    List<Survey> findByStatusOrderByIdDesc(SurveyStatus status);
+@Repository
+public class SurveyRepository extends AbstractFirestoreRepository<Survey, Long> {
+    public SurveyRepository(Firestore firestore) {
+        super(firestore, Survey.class, "surveys");
+    }
 
-    List<Survey> findAllByOrderByIdDesc();
+    public List<Survey> findByStatusOrderByIdDesc(SurveyStatus status) {
+        return readAll().stream().filter(survey -> survey.getStatus() == status).toList().reversed();
+    }
 
-    boolean existsByCreatedById(Long userId);
+    public List<Survey> findAllByOrderByIdDesc() {
+        return readAll().reversed();
+    }
+
+    public boolean existsByCreatedById(Long userId) {
+        return readAll().stream()
+                .anyMatch(survey -> survey.getCreatedBy() != null && userId.equals(survey.getCreatedBy().getId()));
+    }
 }

@@ -1,6 +1,13 @@
 package com.experimentos.backend.audit.infrastructure;
 
 import com.experimentos.backend.audit.domain.AuditLog;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
+import com.google.cloud.firestore.Firestore;
+import org.springframework.stereotype.Repository;
 
-public interface AuditLogRepository extends JpaRepository<AuditLog, Long> {}
+@Repository
+public class AuditLogRepository extends AbstractFirestoreRepository<AuditLog, Long> {
+    public AuditLogRepository(Firestore firestore) {
+        super(firestore, AuditLog.class, "audit_logs");
+    }
+}

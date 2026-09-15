@@ -121,6 +121,7 @@ public class PasswordResetService {
             throw new IllegalArgumentException("Invalid or expired reset token");
         }
         user.changePassword(passwordEncoder.encode(request.newPassword()));
+        users.save(user);
         token.markUsed(now);
         tokens.deleteByUserId(user.getId());
         return new AuthDtos.PasswordRecoveryResponse(SUCCESS_MESSAGE);

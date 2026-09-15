@@ -48,6 +48,14 @@ public class ActivityVote {
             this.userId = userId;
         }
 
+        public Long activityId() {
+            return activityId;
+        }
+
+        public Long userId() {
+            return userId;
+        }
+
         @Override
         public boolean equals(Object other) {
             if (this == other) return true;

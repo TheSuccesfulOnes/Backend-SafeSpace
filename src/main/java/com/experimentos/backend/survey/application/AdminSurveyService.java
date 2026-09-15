@@ -77,6 +77,7 @@ public class AdminSurveyService {
                 required(request.question()),
                 request.type(),
                 request.allowComments());
+        surveys.save(survey);
         auditService.record(actor, "UPDATE_SURVEY", "SURVEY", id.toString());
         return toResponse(survey);
     }
@@ -110,6 +111,7 @@ public class AdminSurveyService {
         User actor = currentAdmin();
         Survey survey = find(id);
         transition.accept(survey);
+        surveys.save(survey);
         auditService.record(actor, action, "SURVEY", id.toString());
         return toResponse(survey);
     }
