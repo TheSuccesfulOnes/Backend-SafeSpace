@@ -89,14 +89,22 @@ public class AiChatService {
 
         AiMessage userMessage =
                 messages.save(new AiMessage(conversation, MessageSender.USER, content));
-        String assistantReply = generateReply(history, content, request.language());
-        if (assistantReply.length() > aiProperties.outputLimit()) {
-            assistantReply = assistantReply.substring(0, aiProperties.outputLimit()).trim();
-        }
-        AiMessage assistantMessage =
-                messages.save(new AiMessage(conversation, MessageSender.ASSISTANT, assistantReply));
+        try {
+            String assistantReply = generateReply(history, content, request.language());
+            if (assistantReply.length() > aiProperties.outputLimit()) {
+                assistantReply = assistantReply.substring(0, aiProperties.outputLimit()).trim();
+            }
+            AiMessage assistantMessage =
+                    messages.save(
+                            new AiMessage(conversation, MessageSender.ASSISTANT, assistantReply));
 
-        return List.of(toResponse(userMessage), toResponse(assistantMessage));
+            return List.of(toResponse(userMessage), toResponse(assistantMessage));
+        } catch (RuntimeException exception) {
+            // Firestore is not managed by Spring's relational transaction manager. Remove the
+            // pending user message when generation fails so retries do not duplicate context.
+            messages.delete(userMessage);
+            throw exception;
+        }
     }
 
     @Transactional(readOnly = true)

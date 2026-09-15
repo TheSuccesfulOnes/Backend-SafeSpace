@@ -4,15 +4,16 @@ import com.experimentos.backend.report.domain.ReportPriority;
 import com.experimentos.backend.report.domain.ReportStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.time.Instant;
 
 public final class ReportDtos {
     private ReportDtos() {}
 
     public record CreateReportRequest(
-            @NotBlank String category,
-            @NotBlank String title,
-            @NotBlank String description,
+            @NotBlank @Size(max = 60) String category,
+            @NotBlank @Size(max = 160) String title,
+            @NotBlank @Size(max = 2000) String description,
             @NotNull ReportPriority priority,
             boolean anonymous) {}
 

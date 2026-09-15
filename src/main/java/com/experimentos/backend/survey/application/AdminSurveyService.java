@@ -1,6 +1,8 @@
 package com.experimentos.backend.survey.application;
 
 import com.experimentos.backend.audit.application.AuditService;
+import com.experimentos.backend.comment.infrastructure.CommentLikeRepository;
+import com.experimentos.backend.comment.infrastructure.CommentRepository;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.CurrentUser;
@@ -17,16 +19,22 @@ import org.springframework.transaction.annotation.Transactional;
 public class AdminSurveyService {
     private final SurveyRepository surveys;
     private final SurveyAnswerRepository answers;
+    private final CommentRepository comments;
+    private final CommentLikeRepository likes;
     private final UserRepository users;
     private final AuditService auditService;
 
     public AdminSurveyService(
             SurveyRepository surveys,
             SurveyAnswerRepository answers,
+            CommentRepository comments,
+            CommentLikeRepository likes,
             UserRepository users,
             AuditService auditService) {
         this.surveys = surveys;
         this.answers = answers;
+        this.comments = comments;
+        this.likes = likes;
         this.users = users;
         this.auditService = auditService;
     }
@@ -45,9 +53,15 @@ public class AdminSurveyService {
                                 new SurveyAdminDtos.AnswerResponse(
                                         answer.getId(),
                                         surveyId,
-                                        answer.getUser().getUsername(),
-                                        answer.getUser().getEmail(),
-                                        answer.getUser().getDisplayName(),
+                                        answer.getUser() == null
+                                                ? null
+                                                : answer.getUser().getUsername(),
+                                        answer.getUser() == null
+                                                ? null
+                                                : answer.getUser().getEmail(),
+                                        answer.getUser() == null
+                                                ? null
+                                                : answer.getUser().getDisplayName(),
                                         answer.getAnswerText(),
                                         answer.getCreatedAt()))
                 .toList();
@@ -101,6 +115,9 @@ public class AdminSurveyService {
     public void delete(Long id) {
         User actor = currentAdmin();
         Survey survey = find(id);
+        comments.findBySurveyId(id).forEach(comment -> likes.deleteByCommentId(comment.getId()));
+        comments.deleteBySurveyId(id);
+        answers.deleteBySurveyId(id);
         surveys.delete(survey);
         surveys.flush();
         auditService.record(actor, "DELETE_SURVEY", "SURVEY", id.toString());
@@ -125,7 +142,7 @@ public class AdminSurveyService {
                 survey.getStatus().name(),
                 survey.isAllowComments(),
                 answers.countBySurveyId(survey.getId()),
-                survey.getCreatedBy().getUsername(),
+                survey.getCreatedBy() == null ? null : survey.getCreatedBy().getUsername(),
                 survey.getCreatedAt());
     }
 

@@ -120,6 +120,26 @@ class PaymentServiceTest {
         verify(payments, never()).save(any(Payment.class));
     }
 
+    @Test
+    void rejectsVouchersThatCouldExceedTheFirestoreDocumentLimit() {
+        byte[] oversizedPdf = new byte[700_001];
+        System.arraycopy("%PDF-1.7".getBytes(), 0, oversizedPdf, 0, 8);
+
+        assertThatThrownBy(
+                        () ->
+                                service.recordPayment(
+                                        "Any person",
+                                        PaymentPlan.MONTHLY,
+                                        new MockMultipartFile(
+                                                "voucher",
+                                                "receipt.pdf",
+                                                "application/pdf",
+                                                oversizedPdf)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("The voucher exceeds the maximum allowed size");
+        verify(payments, never()).save(any(Payment.class));
+    }
+
     private User user(Long id, String username, Role role) {
         User user = new User(username, username + "@example.com", "hash", username, role);
         ReflectionTestUtils.setField(user, "id", id);

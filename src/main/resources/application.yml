@@ -43,7 +43,7 @@ app:
     max-requests-per-window: ${PASSWORD_RESET_MAX_REQUESTS:3}
     window-minutes: ${PASSWORD_RESET_WINDOW_MINUTES:15}
   payment:
-    max-voucher-bytes: ${PAYMENT_MAX_VOUCHER_BYTES:10485760}
+    max-voucher-bytes: ${PAYMENT_MAX_VOUCHER_BYTES:700000}
 
 springdoc:
   swagger-ui:

@@ -11,7 +11,7 @@ public final class AdminDtos {
 
     public record CreateUserRequest(
             @NotBlank @Size(max = 50) String username,
-            @NotBlank @Email String email,
+            @NotBlank @Email @Size(max = 255) String email,
             @NotBlank @Size(min = 8, max = 72) String password,
             @NotBlank @Size(max = 100) String displayName,
             @NotNull Role role) {}
@@ -24,7 +24,7 @@ public final class AdminDtos {
 
     public record UpdateUserRequest(
             @Size(max = 50) String username,
-            @Email String email,
+            @Email @Size(max = 255) String email,
             @Size(max = 100) String displayName,
             Role role) {}
 

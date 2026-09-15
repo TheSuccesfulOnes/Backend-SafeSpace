@@ -14,14 +14,27 @@ public class CommentRepository extends AbstractFirestoreRepository<Comment, Long
 
     public List<Comment> findBySurveyIdAndParentIsNullOrderByIdAsc(Long surveyId) {
         return readAll().stream()
-                .filter(comment -> belongsToSurvey(comment, surveyId) && comment.getParent() == null)
+                .filter(
+                        comment ->
+                                belongsToSurvey(comment, surveyId) && comment.getParent() == null)
                 .toList();
     }
 
     public List<Comment> findByParentIdOrderByIdAsc(Long parentId) {
         return readAll().stream()
-                .filter(comment -> comment.getParent() != null && parentId.equals(comment.getParent().getId()))
+                .filter(
+                        comment ->
+                                comment.getParent() != null
+                                        && parentId.equals(comment.getParent().getId()))
                 .toList();
+    }
+
+    public List<Comment> findBySurveyId(Long surveyId) {
+        return readAll().stream().filter(comment -> belongsToSurvey(comment, surveyId)).toList();
+    }
+
+    public void deleteBySurveyId(Long surveyId) {
+        findBySurveyId(surveyId).forEach(this::delete);
     }
 
     private boolean belongsToSurvey(Comment comment, Long surveyId) {

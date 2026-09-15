@@ -48,5 +48,14 @@ public class ApiExceptionHandler {
                 Instant.now());
     }
 
+    @ExceptionHandler(IllegalStateException.class)
+    @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
+    public ErrorResponse serviceUnavailable() {
+        return new ErrorResponse(
+                "SERVICE_UNAVAILABLE",
+                "El servicio no está disponible temporalmente. Intenta nuevamente.",
+                Instant.now());
+    }
+
     public record ErrorResponse(String code, String message, Instant timestamp) {}
 }

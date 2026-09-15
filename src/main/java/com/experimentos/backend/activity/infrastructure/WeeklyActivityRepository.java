@@ -14,7 +14,10 @@ public class WeeklyActivityRepository extends AbstractFirestoreRepository<Weekly
     }
 
     public List<WeeklyActivity> findByStatusOrderByIdDesc(ActivityStatus status) {
-        return readAll().stream().filter(activity -> activity.getStatus() == status).toList().reversed();
+        return readAll().stream()
+                .filter(activity -> activity.getStatus() == status)
+                .toList()
+                .reversed();
     }
 
     public List<WeeklyActivity> findAllByOrderByIdDesc() {
@@ -23,6 +26,9 @@ public class WeeklyActivityRepository extends AbstractFirestoreRepository<Weekly
 
     public boolean existsByCreatedById(Long userId) {
         return readAll().stream()
-                .anyMatch(activity -> activity.getCreatedBy() != null && userId.equals(activity.getCreatedBy().getId()));
+                .anyMatch(
+                        activity ->
+                                activity.getCreatedBy() != null
+                                        && userId.equals(activity.getCreatedBy().getId()));
     }
 }

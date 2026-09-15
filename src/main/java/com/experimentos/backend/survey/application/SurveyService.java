@@ -12,6 +12,7 @@ import com.experimentos.backend.survey.infrastructure.SurveyAnswerRepository;
 import com.experimentos.backend.survey.infrastructure.SurveyRepository;
 import com.experimentos.backend.survey.interfaces.SurveyDtos;
 import java.util.List;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,12 +85,20 @@ public class SurveyService {
         Survey survey = find(id);
         if (survey.getStatus() != SurveyStatus.PUBLISHED)
             throw new IllegalArgumentException("Survey is not open");
-        User user = currentUser();
+        User user = currentEmployee();
         if (answers.findBySurveyIdAndUserId(id, user.getId()).isPresent())
             throw new IllegalArgumentException("Survey has already been answered");
-        String answerText = request.answerText().trim();
-        answers.save(new SurveyAnswer(survey, user, answerText));
-        comments.save(new Comment(survey, user, null, answerText));
+        String answerText = request.answerText() == null ? "" : request.answerText().trim();
+        if (answerText.isBlank()) throw new IllegalArgumentException("Answer cannot be blank");
+        SurveyAnswer answer = answers.save(new SurveyAnswer(survey, user, answerText));
+        try {
+            comments.save(new Comment(survey, user, null, answerText));
+        } catch (RuntimeException exception) {
+            // Firestore writes are not covered by Spring's relational transaction manager.
+            // Compensate the first write so answering never leaves a half-created response.
+            answers.delete(answer);
+            throw exception;
+        }
     }
 
     private SurveyDtos.SurveyResponse toResponse(Survey survey, Long currentUserId) {
@@ -118,5 +127,13 @@ public class SurveyService {
                         CurrentUser.username(), CurrentUser.username())
                 .orElseThrow(
                         () -> new IllegalArgumentException("Authenticated user was not found"));
+    }
+
+    private User currentEmployee() {
+        User user = currentUser();
+        if (user.getRole() != com.experimentos.backend.shared.security.Role.EMPLOYEE) {
+            throw new AccessDeniedException("Only employees can answer surveys");
+        }
+        return user;
     }
 }

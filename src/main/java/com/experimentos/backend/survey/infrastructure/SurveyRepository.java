@@ -14,7 +14,10 @@ public class SurveyRepository extends AbstractFirestoreRepository<Survey, Long> 
     }
 
     public List<Survey> findByStatusOrderByIdDesc(SurveyStatus status) {
-        return readAll().stream().filter(survey -> survey.getStatus() == status).toList().reversed();
+        return readAll().stream()
+                .filter(survey -> survey.getStatus() == status)
+                .toList()
+                .reversed();
     }
 
     public List<Survey> findAllByOrderByIdDesc() {
@@ -23,6 +26,9 @@ public class SurveyRepository extends AbstractFirestoreRepository<Survey, Long> 
 
     public boolean existsByCreatedById(Long userId) {
         return readAll().stream()
-                .anyMatch(survey -> survey.getCreatedBy() != null && userId.equals(survey.getCreatedBy().getId()));
+                .anyMatch(
+                        survey ->
+                                survey.getCreatedBy() != null
+                                        && userId.equals(survey.getCreatedBy().getId()));
     }
 }

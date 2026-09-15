@@ -25,7 +25,7 @@ public class ReportService {
         User user = currentUser();
         Report report =
                 new Report(
-                        request.anonymous() ? null : user,
+                        user,
                         request.category().trim(),
                         request.title().trim(),
                         request.description().trim(),

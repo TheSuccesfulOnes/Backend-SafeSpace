@@ -85,6 +85,7 @@ public class AdminActivityService {
     public void delete(Long id) {
         User actor = currentAdmin();
         WeeklyActivity activity = find(id);
+        votes.deleteByActivityId(id);
         activities.delete(activity);
         activities.flush();
         auditService.record(actor, "DELETE_ACTIVITY", "ACTIVITY", id.toString());
@@ -112,7 +113,7 @@ public class AdminActivityService {
                 activity.getDescription(),
                 activity.getStatus().name(),
                 options,
-                activity.getCreatedBy().getUsername(),
+                activity.getCreatedBy() == null ? null : activity.getCreatedBy().getUsername(),
                 activity.getCreatedAt());
     }
 

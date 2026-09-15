@@ -8,15 +8,18 @@ import com.experimentos.backend.mood.interfaces.MoodDtos;
 import com.experimentos.backend.shared.security.CurrentUser;
 import com.experimentos.backend.shared.security.Role;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MoodService {
+    private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/Lima");
     private final UserRepository users;
     private final MoodEntryRepository moods;
 
@@ -27,8 +30,8 @@ public class MoodService {
 
     @Transactional
     public MoodDtos.MoodResponse submit(MoodDtos.SubmitMoodRequest request) {
-        User user = currentUser();
-        LocalDate today = LocalDate.now();
+        User user = currentEmployee();
+        LocalDate today = businessDate();
         if (moods.findByUserIdAndMoodDate(user.getId(), today).isPresent())
             throw new IllegalArgumentException("Mood has already been submitted for today");
         MoodEntry entry = moods.save(new MoodEntry(user, request.mood(), today));
@@ -38,7 +41,7 @@ public class MoodService {
     @Transactional(readOnly = true)
     public MoodDtos.MoodResponse today() {
         User user = currentUser();
-        return moods.findByUserIdAndMoodDate(user.getId(), LocalDate.now())
+        return moods.findByUserIdAndMoodDate(user.getId(), businessDate())
                 .map(entry -> new MoodDtos.MoodResponse(entry.getMood(), entry.getMoodDate()))
                 .orElse(null);
     }
@@ -63,10 +66,22 @@ public class MoodService {
         return (int) Math.min(100L, Math.round(totalResponses * 100.0 / activeEmployees));
     }
 
+    private LocalDate businessDate() {
+        return LocalDate.now(BUSINESS_ZONE);
+    }
+
     private User currentUser() {
         return users.findByUsernameIgnoreCaseOrEmailIgnoreCase(
                         CurrentUser.username(), CurrentUser.username())
                 .orElseThrow(
                         () -> new IllegalArgumentException("Authenticated user was not found"));
+    }
+
+    private User currentEmployee() {
+        User user = currentUser();
+        if (user.getRole() != Role.EMPLOYEE) {
+            throw new AccessDeniedException("Only employees can submit moods");
+        }
+        return user;
     }
 }

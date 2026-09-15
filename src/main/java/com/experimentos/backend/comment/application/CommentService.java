@@ -36,6 +36,8 @@ public class CommentService {
     @Transactional(readOnly = true)
     public List<CommentDtos.CommentResponse> list(Long surveyId) {
         User currentUser = currentUser();
+        surveys.findById(surveyId)
+                .orElseThrow(() -> new IllegalArgumentException("Survey was not found"));
         return comments.findBySurveyIdAndParentIsNullOrderByIdAsc(surveyId).stream()
                 .map(comment -> toResponse(comment, currentUser.getId()))
                 .toList();
@@ -49,6 +51,7 @@ public class CommentService {
                         .orElseThrow(() -> new IllegalArgumentException("Survey was not found"));
         if (!survey.isAllowComments())
             throw new IllegalArgumentException("Comments are disabled for this survey");
+        String content = normalizeContent(request.content());
         Comment parent =
                 request.parentId() == null
                         ? null
@@ -61,15 +64,17 @@ public class CommentService {
             throw new IllegalArgumentException("Parent comment does not belong to this survey");
         }
         User user = currentUser();
-        return toResponse(
-                comments.save(new Comment(survey, user, parent, request.content().trim())),
-                user.getId());
+        return toResponse(comments.save(new Comment(survey, user, parent, content)), user.getId());
     }
 
     @Transactional
-    public void like(Long commentId) {
-        if (!comments.existsById(commentId))
-            throw new IllegalArgumentException("Comment was not found");
+    public void like(Long surveyId, Long commentId) {
+        Comment comment =
+                comments.findById(commentId)
+                        .orElseThrow(() -> new IllegalArgumentException("Comment was not found"));
+        if (comment.getSurvey() == null || !surveyId.equals(comment.getSurvey().getId())) {
+            throw new IllegalArgumentException("Comment does not belong to this survey");
+        }
         Long userId = currentUser().getId();
         CommentLikeEntity.CommentLikeId key =
                 new CommentLikeEntity.CommentLikeId(commentId, userId);
@@ -89,6 +94,12 @@ public class CommentService {
         if (!comment.isOwnedBy(user.getId())) {
             throw new AccessDeniedException("Only the comment author can delete this comment");
         }
+        deleteCommentTree(comment);
+    }
+
+    private void deleteCommentTree(Comment comment) {
+        comments.findByParentIdOrderByIdAsc(comment.getId()).forEach(this::deleteCommentTree);
+        likes.deleteByCommentId(comment.getId());
         comments.delete(comment);
     }
 
@@ -111,5 +122,13 @@ public class CommentService {
                         CurrentUser.username(), CurrentUser.username())
                 .orElseThrow(
                         () -> new IllegalArgumentException("Authenticated user was not found"));
+    }
+
+    private String normalizeContent(String content) {
+        String normalized = content == null ? "" : content.trim();
+        if (normalized.isBlank()) throw new IllegalArgumentException("Comment cannot be blank");
+        if (normalized.length() > 1000)
+            throw new IllegalArgumentException("Comment exceeds the maximum allowed length");
+        return normalized;
     }
 }

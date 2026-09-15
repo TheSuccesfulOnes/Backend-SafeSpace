@@ -9,9 +9,9 @@ public final class AuthDtos {
 
     public record RegisterRequest(
             @NotBlank @Size(max = 50) String username,
-            @NotBlank @Email String email,
+            @NotBlank @Email @Size(max = 255) String email,
             @NotBlank @Size(min = 8, max = 72) String password,
-            @NotBlank String confirmPassword,
+            @NotBlank @Size(max = 72) String confirmPassword,
             @Size(max = 100) String displayName) {
         /** Keeps compatibility with clients that predate the display name field. */
         public RegisterRequest(
@@ -27,11 +27,10 @@ public final class AuthDtos {
     public record PasswordResetConfirmRequest(
             @NotBlank @Size(max = 256) String token,
             @NotBlank @Size(min = 8, max = 72) String newPassword,
-            @NotBlank String confirmPassword) {}
+            @NotBlank @Size(max = 72) String confirmPassword) {}
 
     public record PasswordRecoveryResponse(String message) {}
 
     public record AuthResponse(
             String token, String username, String displayName, String role, Long userId) {}
-
 }

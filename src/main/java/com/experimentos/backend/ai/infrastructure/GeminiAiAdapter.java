@@ -118,7 +118,9 @@ public class GeminiAiAdapter implements AiAssistantProvider {
         }
         return response.candidates().stream()
                 .filter(candidate -> candidate != null && candidate.content() != null)
-                .flatMap(candidate -> candidate.content().parts().stream())
+                .map(GeminiCandidate::content)
+                .filter(content -> content.parts() != null)
+                .flatMap(content -> content.parts().stream())
                 .filter(part -> part != null && part.text() != null)
                 .map(GeminiPart::text)
                 .filter(text -> !text.isBlank())

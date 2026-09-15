@@ -25,6 +25,9 @@ public class PaymentService {
     private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/Lima");
     private static final String PDF_CONTENT_TYPE = "application/pdf";
     private static final String PDF_SIGNATURE = "%PDF-";
+    // Voucher bytes are base64-encoded by the Firestore adapter. Keep enough room for the rest of
+    // the payment document under Firestore's document-size limit.
+    private static final long MAX_SAFE_FIRESTORE_VOUCHER_BYTES = 700_000L;
 
     private final PaymentRepository payments;
     private final UserRepository users;
@@ -35,11 +38,12 @@ public class PaymentService {
             PaymentRepository payments,
             UserRepository users,
             AuditService auditService,
-            @Value("${app.payment.max-voucher-bytes:10485760}") long maxVoucherBytes) {
+            @Value("${app.payment.max-voucher-bytes:700000}") long maxVoucherBytes) {
         this.payments = payments;
         this.users = users;
         this.auditService = auditService;
-        this.maxVoucherBytes = maxVoucherBytes;
+        this.maxVoucherBytes =
+                Math.min(Math.max(1L, maxVoucherBytes), MAX_SAFE_FIRESTORE_VOUCHER_BYTES);
     }
 
     @Transactional(readOnly = true)

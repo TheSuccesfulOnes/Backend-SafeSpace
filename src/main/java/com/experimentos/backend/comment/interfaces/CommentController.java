@@ -27,8 +27,8 @@ public class CommentController {
     }
 
     @PostMapping("/{commentId}/like")
-    public void like(@PathVariable Long commentId) {
-        service.like(commentId);
+    public void like(@PathVariable Long surveyId, @PathVariable Long commentId) {
+        service.like(surveyId, commentId);
     }
 
     @DeleteMapping("/{commentId}")

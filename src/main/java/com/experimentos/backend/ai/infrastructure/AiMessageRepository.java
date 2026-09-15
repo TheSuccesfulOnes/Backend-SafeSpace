@@ -17,7 +17,8 @@ public class AiMessageRepository extends AbstractFirestoreRepository<AiMessage, 
         return readAll().stream().filter(message -> belongsTo(message, conversationId)).toList();
     }
 
-    public List<AiMessage> findByConversationIdOrderByIdDesc(Long conversationId, Pageable pageable) {
+    public List<AiMessage> findByConversationIdOrderByIdDesc(
+            Long conversationId, Pageable pageable) {
         return readAll().stream()
                 .filter(message -> belongsTo(message, conversationId))
                 .toList()

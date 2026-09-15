@@ -7,7 +7,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ActivityVoteRepository extends AbstractFirestoreRepository<ActivityVote, ActivityVote.VoteId> {
+public class ActivityVoteRepository
+        extends AbstractFirestoreRepository<ActivityVote, ActivityVote.VoteId> {
     public ActivityVoteRepository(Firestore firestore) {
         super(firestore, ActivityVote.class, "activity_votes");
     }
@@ -22,7 +23,9 @@ public class ActivityVoteRepository extends AbstractFirestoreRepository<Activity
     }
 
     public long countByActivityId(Long activityId) {
-        return readAll().stream().filter(vote -> activityId.equals(readField(vote, "activityId"))).count();
+        return readAll().stream()
+                .filter(vote -> activityId.equals(readField(vote, "activityId")))
+                .count();
     }
 
     public long countByOptionId(Long optionId) {
@@ -30,6 +33,13 @@ public class ActivityVoteRepository extends AbstractFirestoreRepository<Activity
                 .filter(vote -> readField(vote, "option") != null)
                 .filter(vote -> optionId.equals(readField(readField(vote, "option"), "id")))
                 .count();
+    }
+
+    public void deleteByActivityId(Long activityId) {
+        readAll().stream()
+                .filter(vote -> activityId.equals(readField(vote, "activityId")))
+                .toList()
+                .forEach(this::delete);
     }
 
     @Override

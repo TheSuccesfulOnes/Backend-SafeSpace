@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.experimentos.backend.audit.application.AuditService;
+import com.experimentos.backend.comment.infrastructure.CommentLikeRepository;
+import com.experimentos.backend.comment.infrastructure.CommentRepository;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.Role;
@@ -31,6 +33,8 @@ import org.springframework.test.util.ReflectionTestUtils;
 class AdminSurveyServiceTest {
     @Mock SurveyRepository surveys;
     @Mock SurveyAnswerRepository answers;
+    @Mock CommentRepository comments;
+    @Mock CommentLikeRepository likes;
     @Mock UserRepository users;
     @Mock AuditService auditService;
 
@@ -40,7 +44,7 @@ class AdminSurveyServiceTest {
     @BeforeEach
     void setUp() {
         admin = user(1L, "admin", Role.SYSTEM_ADMIN);
-        service = new AdminSurveyService(surveys, answers, users, auditService);
+        service = new AdminSurveyService(surveys, answers, comments, likes, users, auditService);
         SecurityContextHolder.getContext()
                 .setAuthentication(
                         UsernamePasswordAuthenticationToken.authenticated(

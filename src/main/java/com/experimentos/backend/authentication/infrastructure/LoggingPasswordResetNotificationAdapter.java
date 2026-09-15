@@ -17,8 +17,7 @@ public class LoggingPasswordResetNotificationAdapter implements PasswordResetNot
     @Override
     public void send(User user, String resetLink) {
         LOGGER.info(
-                "Local password recovery link generated for employee {}: {}",
-                user.getUsername(),
-                resetLink);
+                "Local password recovery link generated for employee {}. The link is intentionally not logged.",
+                user.getUsername());
     }
 }

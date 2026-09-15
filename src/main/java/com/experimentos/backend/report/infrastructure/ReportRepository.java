@@ -14,7 +14,9 @@ public class ReportRepository extends AbstractFirestoreRepository<Report, Long> 
 
     public List<Report> findByUserIdOrderByIdDesc(Long userId) {
         return readAll().stream()
-                .filter(report -> reportUserId(report) != null && userId.equals(reportUserId(report)))
+                .filter(
+                        report ->
+                                reportUserId(report) != null && userId.equals(reportUserId(report)))
                 .toList()
                 .reversed();
     }
@@ -26,6 +28,8 @@ public class ReportRepository extends AbstractFirestoreRepository<Report, Long> 
     private Long reportUserId(Report report) {
         Object user = readField(report, "user");
         Object id = user == null ? null : readField(user, "id");
-        return id instanceof Number number ? number.longValue() : id == null ? null : Long.valueOf(id.toString());
+        return id instanceof Number number
+                ? number.longValue()
+                : id == null ? null : Long.valueOf(id.toString());
     }
 }

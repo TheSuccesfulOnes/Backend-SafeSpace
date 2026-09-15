@@ -7,6 +7,7 @@ import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.CurrentUser;
 import java.util.List;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,7 +67,7 @@ public class ActivityService {
                                 () ->
                                         new IllegalArgumentException(
                                                 "Option does not belong to this activity"));
-        User user = currentUser();
+        User user = currentEmployee();
         votes.findByActivityIdAndUserId(id, user.getId())
                 .ifPresent(vote -> votes.deleteById(new ActivityVote.VoteId(id, user.getId())));
         votes.save(new ActivityVote(id, user.getId(), option));
@@ -107,5 +108,13 @@ public class ActivityService {
                         CurrentUser.username(), CurrentUser.username())
                 .orElseThrow(
                         () -> new IllegalArgumentException("Authenticated user was not found"));
+    }
+
+    private User currentEmployee() {
+        User user = currentUser();
+        if (user.getRole() != com.experimentos.backend.shared.security.Role.EMPLOYEE) {
+            throw new AccessDeniedException("Only employees can vote in activities");
+        }
+        return user;
     }
 }

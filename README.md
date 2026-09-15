@@ -43,6 +43,10 @@ Colecciones principales:
 - `ai_conversations`, `ai_messages`
 - `password_reset_tokens`, `audit_logs`
 
+Los vouchers de pago se validan como PDF y tienen un límite seguro de 700 KB porque se almacenan
+en el mismo documento de Firestore. Para archivos mayores, conviene añadir Firebase Storage y
+guardar únicamente la referencia del archivo en Firestore.
+
 Las migraciones SQL históricas no forman parte del arranque: el proyecto no incluye Flyway, JPA ni el driver de MySQL en tiempo de ejecución.
 
 ## Render y GitHub

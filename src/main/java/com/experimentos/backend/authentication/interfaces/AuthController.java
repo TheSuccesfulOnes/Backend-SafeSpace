@@ -42,5 +42,4 @@ public class AuthController {
             @Valid @RequestBody AuthDtos.PasswordResetConfirmRequest request) {
         return passwordResetService.confirmRecovery(request);
     }
-
 }

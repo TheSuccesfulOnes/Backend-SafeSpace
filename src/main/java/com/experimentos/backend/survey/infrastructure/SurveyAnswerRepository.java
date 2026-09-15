@@ -26,13 +26,23 @@ public class SurveyAnswerRepository extends AbstractFirestoreRepository<SurveyAn
 
     public long countBySurveyId(Long surveyId) {
         return readAll().stream()
-                .filter(answer -> answer.getSurvey() != null && surveyId.equals(answer.getSurvey().getId()))
+                .filter(
+                        answer ->
+                                answer.getSurvey() != null
+                                        && surveyId.equals(answer.getSurvey().getId()))
                 .count();
     }
 
     public List<SurveyAnswer> findBySurveyIdOrderByIdAsc(Long surveyId) {
         return readAll().stream()
-                .filter(answer -> answer.getSurvey() != null && surveyId.equals(answer.getSurvey().getId()))
+                .filter(
+                        answer ->
+                                answer.getSurvey() != null
+                                        && surveyId.equals(answer.getSurvey().getId()))
                 .toList();
+    }
+
+    public void deleteBySurveyId(Long surveyId) {
+        findBySurveyIdOrderByIdAsc(surveyId).forEach(this::delete);
     }
 }

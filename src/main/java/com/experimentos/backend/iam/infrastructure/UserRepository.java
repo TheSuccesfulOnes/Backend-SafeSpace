@@ -23,36 +23,52 @@ public class UserRepository extends AbstractFirestoreRepository<User, Long> {
                         user ->
                                 normalize(user.getUsername()).equals(normalizedUsername)
                                         || (normalizedEmail != null
-                                                && Objects.equals(normalize(user.getEmail()), normalizedEmail)))
+                                                && Objects.equals(
+                                                        normalize(user.getEmail()),
+                                                        normalizedEmail)))
                 .findFirst();
     }
 
     public Optional<User> findByEmailIgnoreCase(String email) {
         String normalizedEmail = normalize(email);
         return readAll().stream()
-                .filter(user -> normalizedEmail != null && Objects.equals(normalize(user.getEmail()), normalizedEmail))
+                .filter(
+                        user ->
+                                normalizedEmail != null
+                                        && Objects.equals(
+                                                normalize(user.getEmail()), normalizedEmail))
                 .findFirst();
     }
 
     public boolean existsByUsernameIgnoreCase(String username) {
-        return readAll().stream().anyMatch(user -> normalize(user.getUsername()).equals(normalize(username)));
+        return readAll().stream()
+                .anyMatch(user -> normalize(user.getUsername()).equals(normalize(username)));
     }
 
     public boolean existsByEmailIgnoreCase(String email) {
         String normalized = normalize(email);
-        return normalized != null && readAll().stream().anyMatch(user -> normalized.equals(normalize(user.getEmail())));
+        return normalized != null
+                && readAll().stream()
+                        .anyMatch(user -> normalized.equals(normalize(user.getEmail())));
     }
 
     public boolean existsByUsernameIgnoreCaseAndIdNot(String username, Long id) {
         return readAll().stream()
-                .anyMatch(user -> !id.equals(user.getId()) && normalize(user.getUsername()).equals(normalize(username)));
+                .anyMatch(
+                        user ->
+                                !id.equals(user.getId())
+                                        && normalize(user.getUsername())
+                                                .equals(normalize(username)));
     }
 
     public boolean existsByEmailIgnoreCaseAndIdNot(String email, Long id) {
         String normalized = normalize(email);
         return normalized != null
                 && readAll().stream()
-                        .anyMatch(user -> !id.equals(user.getId()) && normalized.equals(normalize(user.getEmail())));
+                        .anyMatch(
+                                user ->
+                                        !id.equals(user.getId())
+                                                && normalized.equals(normalize(user.getEmail())));
     }
 
     public long countByRole(Role role) {
@@ -60,7 +76,9 @@ public class UserRepository extends AbstractFirestoreRepository<User, Long> {
     }
 
     public long countByRoleAndEnabledTrue(Role role) {
-        return readAll().stream().filter(user -> user.getRole() == role && user.isEnabled()).count();
+        return readAll().stream()
+                .filter(user -> user.getRole() == role && user.isEnabled())
+                .count();
     }
 
     public Optional<User> findBySystemOwnerTrue() {

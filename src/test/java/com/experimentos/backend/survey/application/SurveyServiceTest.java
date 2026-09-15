@@ -94,8 +94,7 @@ class SurveyServiceTest {
         when(answers.findBySurveyIdAndUserId(10L, 2L)).thenReturn(Optional.empty());
         when(answers.save(any(SurveyAnswer.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0));
-        when(comments.save(any(Comment.class)))
-                .thenAnswer(invocation -> invocation.getArgument(0));
+        when(comments.save(any(Comment.class))).thenAnswer(invocation -> invocation.getArgument(0));
         authenticateAs("maria");
 
         service().answer(10L, new SurveyDtos.AnswerRequest("  Feeling good  "));

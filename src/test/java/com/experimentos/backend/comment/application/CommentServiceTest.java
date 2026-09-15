@@ -53,6 +53,7 @@ class CommentServiceTest {
         authenticateAs("maria");
         when(users.findByUsernameIgnoreCaseOrEmailIgnoreCase("maria", "maria"))
                 .thenReturn(Optional.of(currentUser));
+        when(surveys.findById(10L)).thenReturn(Optional.of(survey));
         when(comments.findBySurveyIdAndParentIsNullOrderByIdAsc(10L))
                 .thenReturn(List.of(ownComment, otherComment));
         when(comments.findByParentIdOrderByIdAsc(anyLong())).thenReturn(List.of());
@@ -92,9 +93,7 @@ class CommentServiceTest {
         when(comments.findById(11L)).thenReturn(Optional.of(comment));
 
         assertThatThrownBy(
-                        () ->
-                                new CommentService(comments, likes, surveys, users)
-                                        .delete(10L, 11L))
+                        () -> new CommentService(comments, likes, surveys, users).delete(10L, 11L))
                 .isInstanceOf(AccessDeniedException.class);
         verify(comments, never()).delete(any(Comment.class));
     }
@@ -112,8 +111,7 @@ class CommentServiceTest {
     }
 
     private User user(Long id, String username) {
-        User user =
-                new User(username, username + "@example.com", "hash", username, Role.EMPLOYEE);
+        User user = new User(username, username + "@example.com", "hash", username, Role.EMPLOYEE);
         ReflectionTestUtils.setField(user, "id", id);
         return user;
     }

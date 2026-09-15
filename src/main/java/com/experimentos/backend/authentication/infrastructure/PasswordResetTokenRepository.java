@@ -7,7 +7,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PasswordResetTokenRepository extends AbstractFirestoreRepository<PasswordResetToken, Long> {
+public class PasswordResetTokenRepository
+        extends AbstractFirestoreRepository<PasswordResetToken, Long> {
     public PasswordResetTokenRepository(Firestore firestore) {
         super(firestore, PasswordResetToken.class, "password_reset_tokens");
     }
