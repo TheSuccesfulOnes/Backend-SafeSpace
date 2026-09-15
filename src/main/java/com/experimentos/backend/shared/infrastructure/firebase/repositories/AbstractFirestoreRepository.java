@@ -204,7 +204,7 @@ public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRep
     }
 
     protected T fromDocument(DocumentSnapshot document) {
-        return decodeObject(document.getData(), entityType, null);
+        return decodeObject(document.getData(), entityType);
     }
 
     private Object readId(Object entity) {
@@ -381,7 +381,7 @@ public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRep
         return encodeObject(value, depth, false);
     }
 
-    private <R> R decodeObject(Map<String, Object> data, Class<R> type, Type genericType) {
+    private <R> R decodeObject(Map<String, Object> data, Class<R> type) {
         if (data == null) return null;
         try {
             var constructor = type.getDeclaredConstructor();
@@ -415,7 +415,7 @@ public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRep
         if (type == byte[].class) return Base64.getDecoder().decode(value.toString());
         if (type == Instant.class) return Instant.parse(value.toString());
         if (type == LocalDate.class) return LocalDate.parse(value.toString());
-        if (type.isEnum()) return Enum.valueOf(type.asSubclass(Enum.class), value.toString());
+        if (type.isEnum()) return decodeEnum(value, type);
         if (Collection.class.isAssignableFrom(type) && value instanceof List<?> values) {
             Class<?> elementType = Object.class;
             if (genericType instanceof ParameterizedType parameterizedType
@@ -429,9 +429,16 @@ public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRep
         if (value instanceof Map<?, ?> map) {
             Map<String, Object> normalized = new HashMap<>();
             map.forEach((key, item) -> normalized.put(String.valueOf(key), item));
-            return decodeObject(normalized, type, genericType);
+            return decodeObject(normalized, type);
         }
         return convertScalar(value, type);
+    }
+
+    private Object decodeEnum(Object value, Class<?> type) {
+        for (Object constant : type.getEnumConstants()) {
+            if (((Enum<?>) constant).name().equals(value.toString())) return constant;
+        }
+        throw new IllegalArgumentException("Unknown " + type.getSimpleName() + " value: " + value);
     }
 
     private Object convertScalar(Object value, Class<?> type) {
