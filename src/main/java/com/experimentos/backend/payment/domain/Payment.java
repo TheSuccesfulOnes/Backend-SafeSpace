@@ -23,6 +23,9 @@ public class Payment {
 
     private long voucherSize;
 
+    // The Firestore adapter persists this payload reflectively. Keep it private and never expose
+    // the document bytes through the domain API or an HTTP response.
+    @SuppressWarnings("unused")
     private byte[] voucherData;
 
     private LocalDate nextPaymentDate;
@@ -62,6 +65,14 @@ public class Payment {
         return user;
     }
 
+    public User getRecordedBy() {
+        return recordedBy;
+    }
+
+    public String getRecordedByUsername() {
+        return recordedByUsername;
+    }
+
     public String getBeneficiaryName() {
         return beneficiaryName;
     }
@@ -72,6 +83,10 @@ public class Payment {
 
     public String getVoucherFilename() {
         return voucherFilename;
+    }
+
+    public String getVoucherContentType() {
+        return voucherContentType;
     }
 
     public long getVoucherSize() {

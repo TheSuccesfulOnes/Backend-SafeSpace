@@ -33,7 +33,7 @@ public class AiMessageRepository extends AbstractFirestoreRepository<AiMessage, 
     }
 
     private boolean belongsTo(AiMessage message, Long conversationId) {
-        Object conversation = readField(message, "conversation");
-        return conversation != null && conversationId.equals(readField(conversation, "id"));
+        return message.getConversation() != null
+                && conversationId.equals(message.getConversation().getId());
     }
 }

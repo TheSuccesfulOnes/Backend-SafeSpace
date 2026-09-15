@@ -24,4 +24,28 @@ public class AuditLog {
         this.resourceType = resourceType;
         this.resourceId = resourceId;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getActor() {
+        return actor;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    public String getResourceId() {
+        return resourceId;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
 }

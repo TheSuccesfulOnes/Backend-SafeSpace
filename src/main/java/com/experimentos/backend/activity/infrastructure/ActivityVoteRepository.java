@@ -3,6 +3,7 @@ package com.experimentos.backend.activity.infrastructure;
 import com.experimentos.backend.activity.domain.ActivityVote;
 import com.experimentos.backend.shared.infrastructure.firebase.repositories.AbstractFirestoreRepository;
 import com.google.cloud.firestore.Firestore;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -17,34 +18,34 @@ public class ActivityVoteRepository
         return readAll().stream()
                 .filter(
                         vote ->
-                                activityId.equals(readField(vote, "activityId"))
-                                        && userId.equals(readField(vote, "userId")))
+                                Objects.equals(activityId, vote.getActivityId())
+                                        && Objects.equals(userId, vote.getUserId()))
                 .findFirst();
     }
 
     public long countByActivityId(Long activityId) {
         return readAll().stream()
-                .filter(vote -> activityId.equals(readField(vote, "activityId")))
+                .filter(vote -> Objects.equals(activityId, vote.getActivityId()))
                 .count();
     }
 
     public long countByOptionId(Long optionId) {
         return readAll().stream()
-                .filter(vote -> readField(vote, "option") != null)
-                .filter(vote -> optionId.equals(readField(readField(vote, "option"), "id")))
+                .filter(vote -> vote.getOption() != null)
+                .filter(vote -> optionId.equals(vote.getOption().getId()))
                 .count();
     }
 
     public void deleteByActivityId(Long activityId) {
         readAll().stream()
-                .filter(vote -> activityId.equals(readField(vote, "activityId")))
+                .filter(vote -> Objects.equals(activityId, vote.getActivityId()))
                 .toList()
                 .forEach(this::delete);
     }
 
     @Override
     protected String documentId(ActivityVote entity, Object id) {
-        return readField(entity, "activityId") + "_" + readField(entity, "userId");
+        return entity.getActivityId() + "_" + entity.getUserId();
     }
 
     public boolean existsById(ActivityVote.VoteId id) {

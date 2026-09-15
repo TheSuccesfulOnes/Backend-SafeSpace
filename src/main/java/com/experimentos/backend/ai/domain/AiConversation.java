@@ -30,6 +30,10 @@ public class AiConversation {
         return title;
     }
 
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
     public void rename(String title) {
         this.title = title;
     }

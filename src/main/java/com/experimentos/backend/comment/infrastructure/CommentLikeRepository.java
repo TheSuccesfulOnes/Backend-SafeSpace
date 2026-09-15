@@ -13,9 +13,7 @@ public class CommentLikeRepository
     }
 
     public long countByCommentId(Long commentId) {
-        return readAll().stream()
-                .filter(like -> commentId.equals(readField(like, "commentId")))
-                .count();
+        return readAll().stream().filter(like -> commentId.equals(like.getCommentId())).count();
     }
 
     public boolean existsById(CommentLikeEntity.CommentLikeId id) {
@@ -29,22 +27,22 @@ public class CommentLikeRepository
 
     public void deleteByCommentId(Long commentId) {
         readAll().stream()
-                .filter(like -> commentId.equals(readField(like, "commentId")))
+                .filter(like -> commentId.equals(like.getCommentId()))
                 .toList()
                 .forEach(this::delete);
     }
 
     @Override
     protected String documentId(CommentLikeEntity entity, Object id) {
-        return readField(entity, "commentId") + "_" + readField(entity, "userId");
+        return entity.getCommentId() + "_" + entity.getUserId();
     }
 
     private Optional<CommentLikeEntity> findByKey(CommentLikeEntity.CommentLikeId id) {
         return readAll().stream()
                 .filter(
                         like ->
-                                id.commentId().equals(readField(like, "commentId"))
-                                        && id.userId().equals(readField(like, "userId")))
+                                id.commentId().equals(like.getCommentId())
+                                        && id.userId().equals(like.getUserId()))
                 .findFirst();
     }
 }

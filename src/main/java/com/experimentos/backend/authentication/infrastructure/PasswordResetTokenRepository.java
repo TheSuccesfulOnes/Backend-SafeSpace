@@ -14,9 +14,7 @@ public class PasswordResetTokenRepository
     }
 
     public Optional<PasswordResetToken> findByTokenHash(String tokenHash) {
-        return readAll().stream()
-                .filter(token -> tokenHash.equals(readField(token, "tokenHash")))
-                .findFirst();
+        return readAll().stream().filter(token -> token.matchesHash(tokenHash)).findFirst();
     }
 
     public void deleteByUserId(Long userId) {

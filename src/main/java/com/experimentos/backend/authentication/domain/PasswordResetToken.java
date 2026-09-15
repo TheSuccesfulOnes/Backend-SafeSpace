@@ -25,8 +25,28 @@ public class PasswordResetToken {
         this.expiresAt = expiresAt;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public User getUser() {
         return user;
+    }
+
+    public Instant getExpiresAt() {
+        return expiresAt;
+    }
+
+    public Instant getUsedAt() {
+        return usedAt;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public boolean matchesHash(String candidateHash) {
+        return tokenHash != null && tokenHash.equals(candidateHash);
     }
 
     public boolean isUsableAt(Instant now) {

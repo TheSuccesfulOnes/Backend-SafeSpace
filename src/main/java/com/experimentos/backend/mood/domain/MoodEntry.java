@@ -38,4 +38,8 @@ public class MoodEntry {
     public LocalDate getMoodDate() {
         return moodDate;
     }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
 }

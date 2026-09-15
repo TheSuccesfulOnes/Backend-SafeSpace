@@ -18,6 +18,18 @@ public class CommentLikeEntity {
         this.userId = userId;
     }
 
+    public Long getCommentId() {
+        return commentId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
     public static class CommentLikeId implements Serializable {
         private Long commentId;
         private Long userId;

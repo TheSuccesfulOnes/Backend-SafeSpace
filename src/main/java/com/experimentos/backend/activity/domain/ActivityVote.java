@@ -21,6 +21,22 @@ public class ActivityVote {
         this.option = option;
     }
 
+    public Long getActivityId() {
+        return activityId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public ActivityOption getOption() {
+        return option;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
     public static class VoteId implements Serializable {
         private Long activityId;
         private Long userId;

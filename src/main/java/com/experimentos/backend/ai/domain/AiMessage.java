@@ -25,6 +25,10 @@ public class AiMessage {
         return id;
     }
 
+    public AiConversation getConversation() {
+        return conversation;
+    }
+
     public MessageSender getSender() {
         return sender;
     }

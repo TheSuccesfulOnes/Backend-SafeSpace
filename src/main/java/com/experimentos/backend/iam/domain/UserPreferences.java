@@ -21,6 +21,10 @@ public class UserPreferences {
         return userId;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public String getLanguage() {
         return language;
     }

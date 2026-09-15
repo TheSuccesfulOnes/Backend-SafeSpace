@@ -66,6 +66,14 @@ public class User {
         return systemOwner;
     }
 
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
     public void updateProfile(String username, String email, String displayName) {
         this.username = username;
         this.email = email;
