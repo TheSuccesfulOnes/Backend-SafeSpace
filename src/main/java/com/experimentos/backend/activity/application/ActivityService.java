@@ -7,6 +7,7 @@ import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
 import com.experimentos.backend.shared.security.CurrentUser;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +43,10 @@ public class ActivityService {
     @Transactional
     public ActivityDtos.ActivityResponse create(ActivityDtos.CreateActivityRequest request) {
         WeeklyActivity activity =
-                new WeeklyActivity(request.title().trim(), request.description(), currentUser());
+                new WeeklyActivity(
+                        request.title().trim(),
+                        normalizeNullable(request.description()),
+                        currentUser());
         request.options().forEach(activity::addOption);
         return toResponse(activities.save(activity));
     }
@@ -59,9 +63,11 @@ public class ActivityService {
         WeeklyActivity activity = find(id);
         if (activity.getStatus() != ActivityStatus.OPEN)
             throw new IllegalArgumentException("Activity is closed");
+        if (request == null || request.optionId() == null)
+            throw new IllegalArgumentException("Option is required");
         ActivityOption option =
                 activity.getOptions().stream()
-                        .filter(item -> item.getId().equals(request.optionId()))
+                        .filter(item -> Objects.equals(item.getId(), request.optionId()))
                         .findFirst()
                         .orElseThrow(
                                 () ->
@@ -116,5 +122,9 @@ public class ActivityService {
             throw new AccessDeniedException("Only employees can vote in activities");
         }
         return user;
+    }
+
+    private String normalizeNullable(String value) {
+        return value == null ? null : value.trim();
     }
 }

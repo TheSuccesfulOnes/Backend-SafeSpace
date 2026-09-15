@@ -52,6 +52,7 @@ public class ActivityVoteRepository
     }
 
     public void deleteById(ActivityVote.VoteId id) {
-        super.deleteById(id.activityId() + "_" + id.userId());
+        if (id == null) return;
+        deleteDocumentById(id.activityId() + "_" + id.userId());
     }
 }

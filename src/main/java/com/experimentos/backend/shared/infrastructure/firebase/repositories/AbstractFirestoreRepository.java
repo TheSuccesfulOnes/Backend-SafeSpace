@@ -146,8 +146,21 @@ public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRep
     @Override
     public void deleteById(ID id) {
         if (id == null) return;
+        deleteDocumentById(String.valueOf(id));
+    }
+
+    /**
+     * Deletes a document by its physical Firestore identifier.
+     *
+     * <p>Some aggregates use a composite identifier at the storage boundary (for example, {@code
+     * commentId_userId}). Those repositories must not pass the composite string through the generic
+     * {@code ID} API because its {@code toString()} representation is not the Firestore document
+     * identifier.
+     */
+    protected void deleteDocumentById(String documentId) {
+        if (documentId == null || documentId.isBlank()) return;
         try {
-            firestore.collection(collectionName).document(String.valueOf(id)).delete().get();
+            firestore.collection(collectionName).document(documentId).delete().get();
         } catch (InterruptedException exception) {
             Thread.currentThread().interrupt();
             throw new IllegalStateException("Firestore delete was interrupted", exception);

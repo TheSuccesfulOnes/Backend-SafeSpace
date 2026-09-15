@@ -12,7 +12,7 @@ public final class ActivityAdminDtos {
     public record ActivityRequest(
             @NotBlank @Size(max = 160) String title,
             @Size(max = 500) String description,
-            @NotEmpty List<@NotBlank @Size(max = 160) String> options) {}
+            @NotEmpty @Size(max = 20) List<@NotBlank @Size(max = 160) String> options) {}
 
     public record ActivityResponse(
             Long id,

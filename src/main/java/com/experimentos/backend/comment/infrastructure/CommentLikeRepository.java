@@ -23,7 +23,8 @@ public class CommentLikeRepository
     }
 
     public void deleteById(CommentLikeEntity.CommentLikeId id) {
-        super.deleteById(id.commentId() + "_" + id.userId());
+        if (id == null) return;
+        deleteDocumentById(id.commentId() + "_" + id.userId());
     }
 
     public void deleteByCommentId(Long commentId) {

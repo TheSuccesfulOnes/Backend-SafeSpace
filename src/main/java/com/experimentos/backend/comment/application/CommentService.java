@@ -11,6 +11,7 @@ import com.experimentos.backend.shared.security.CurrentUser;
 import com.experimentos.backend.survey.domain.Survey;
 import com.experimentos.backend.survey.infrastructure.SurveyRepository;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,7 +61,9 @@ public class CommentService {
                                         () ->
                                                 new IllegalArgumentException(
                                                         "Parent comment was not found"));
-        if (parent != null && !parent.getSurvey().getId().equals(surveyId)) {
+        if (parent != null
+                && (parent.getSurvey() == null
+                        || !Objects.equals(parent.getSurvey().getId(), surveyId))) {
             throw new IllegalArgumentException("Parent comment does not belong to this survey");
         }
         User user = currentUser();
@@ -87,7 +90,7 @@ public class CommentService {
         Comment comment =
                 comments.findById(commentId)
                         .orElseThrow(() -> new IllegalArgumentException("Comment was not found"));
-        if (!comment.getSurvey().getId().equals(surveyId)) {
+        if (comment.getSurvey() == null || !Objects.equals(comment.getSurvey().getId(), surveyId)) {
             throw new IllegalArgumentException("Comment does not belong to this survey");
         }
         User user = currentUser();
