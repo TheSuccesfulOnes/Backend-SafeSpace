@@ -1,19 +1,10 @@
 package com.experimentos.backend.activity.domain;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "activity_options")
 public class ActivityOption {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "activity_id", nullable = false)
     private WeeklyActivity activity;
 
-    @Column(nullable = false, length = 160)
     private String label;
 
     protected ActivityOption() {}

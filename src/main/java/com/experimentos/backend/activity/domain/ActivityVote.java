@@ -1,27 +1,16 @@
 package com.experimentos.backend.activity.domain;
 
-import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
-@Entity
-@Table(name = "activity_votes")
-@IdClass(ActivityVote.VoteId.class)
 public class ActivityVote {
-    @Id
-    @Column(name = "activity_id")
     private Long activityId;
 
-    @Id
-    @Column(name = "user_id")
     private Long userId;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "option_id", nullable = false)
     private ActivityOption option;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
     protected ActivityVote() {}
@@ -30,11 +19,6 @@ public class ActivityVote {
         this.activityId = activityId;
         this.userId = userId;
         this.option = option;
-    }
-
-    @PrePersist
-    void onCreate() {
-        createdAt = Instant.now();
     }
 
     public static class VoteId implements Serializable {

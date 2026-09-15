@@ -1,41 +1,25 @@
 package com.experimentos.backend.report.domain;
 
 import com.experimentos.backend.iam.domain.User;
-import jakarta.persistence.*;
 import java.time.Instant;
 
-@Entity
-@Table(name = "reports")
 public class Report {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(nullable = false, length = 60)
     private String category;
 
-    @Column(nullable = false, length = 160)
     private String title;
 
-    @Column(nullable = false, length = 2000)
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private ReportPriority priority;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private ReportStatus status = ReportStatus.NEW;
 
-    @Column(nullable = false)
     private boolean anonymous;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
     protected Report() {}
@@ -53,11 +37,6 @@ public class Report {
         this.description = description;
         this.priority = priority;
         this.anonymous = anonymous;
-    }
-
-    @PrePersist
-    void onCreate() {
-        createdAt = Instant.now();
     }
 
     public Long getId() {
@@ -89,7 +68,7 @@ public class Report {
     }
 
     public String getReporterDisplayName() {
-        return user == null ? null : user.getDisplayName();
+        return anonymous || user == null ? null : user.getDisplayName();
     }
 
     public Instant getCreatedAt() {

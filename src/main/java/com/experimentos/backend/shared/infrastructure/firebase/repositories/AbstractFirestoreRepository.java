@@ -1,5 +1,6 @@
 package com.experimentos.backend.shared.infrastructure.firebase.repositories;
 
+import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
@@ -29,8 +30,7 @@ import org.slf4j.LoggerFactory;
  * <p>Documents intentionally contain scalar snapshots of related entities. This keeps reads
  * predictable and avoids lazy-loading or cross-collection joins while preserving the domain API.
  */
-public abstract class AbstractFirestoreRepository<T, ID>
-        implements FirestoreRepository<T, ID> {
+public abstract class AbstractFirestoreRepository<T, ID> implements FirestoreRepository<T, ID> {
 
     private static final Logger log = LoggerFactory.getLogger(AbstractFirestoreRepository.class);
     private static final String COUNTERS_COLLECTION = "_counters";
@@ -101,7 +101,8 @@ public abstract class AbstractFirestoreRepository<T, ID>
             for (QueryDocumentSnapshot document : snapshot.getDocuments()) {
                 entities.add(fromDocument(document));
             }
-            entities.sort(Comparator.comparing(this::numericId, Comparator.nullsLast(Long::compareTo)));
+            entities.sort(
+                    Comparator.comparing(this::numericId, Comparator.nullsLast(Long::compareTo)));
             return entities;
         } catch (InterruptedException exception) {
             Thread.currentThread().interrupt();
@@ -115,7 +116,12 @@ public abstract class AbstractFirestoreRepository<T, ID>
     public boolean existsById(ID id) {
         if (id == null) return false;
         try {
-            return firestore.collection(collectionName).document(String.valueOf(id)).get().get().exists();
+            return firestore
+                    .collection(collectionName)
+                    .document(String.valueOf(id))
+                    .get()
+                    .get()
+                    .exists();
         } catch (InterruptedException exception) {
             Thread.currentThread().interrupt();
             throw new IllegalStateException("Firestore read was interrupted", exception);
@@ -181,7 +187,7 @@ public abstract class AbstractFirestoreRepository<T, ID>
     }
 
     protected Map<String, Object> toDocument(T entity) {
-        return encodeObject(entity, 2);
+        return encodeObject(entity, 2, true);
     }
 
     protected T fromDocument(DocumentSnapshot document) {
@@ -197,7 +203,8 @@ public abstract class AbstractFirestoreRepository<T, ID>
 
     private boolean hasNumericIdField(Object entity) {
         Field idField = findField(entity.getClass(), "id");
-        return idField != null && (idField.getType() == Long.class || idField.getType() == long.class);
+        return idField != null
+                && (idField.getType() == Long.class || idField.getType() == long.class);
     }
 
     private boolean hasUserIdField(Object entity) {
@@ -224,21 +231,25 @@ public abstract class AbstractFirestoreRepository<T, ID>
 
     private Long nextIdFor(String counterName) {
         String counterId = counterName.replace('/', '_');
+        DocumentReference counterReference =
+                firestore.collection(COUNTERS_COLLECTION).document(counterId);
         try {
-            return firestore.runTransaction(
+            DocumentSnapshot existingCounter = counterReference.get().get();
+            long persistedLowerBound =
+                    existingCounter.exists() && existingCounter.getLong("value") != null
+                            ? existingCounter.getLong("value")
+                            : maxPersistedId(counterName);
+            return firestore
+                    .runTransaction(
                             transaction -> {
-                                DocumentSnapshot snapshot =
-                                        transaction
-                                                .get(firestore.collection(COUNTERS_COLLECTION).document(counterId))
-                                                .get();
+                                DocumentSnapshot snapshot = transaction.get(counterReference).get();
                                 long current =
                                         snapshot.exists() && snapshot.getLong("value") != null
                                                 ? snapshot.getLong("value")
                                                 : 0L;
-                                long next = current + 1L;
+                                long next = Math.max(current, persistedLowerBound) + 1L;
                                 Map<String, Object> data = Map.of("value", next);
-                                transaction.set(
-                                        firestore.collection(COUNTERS_COLLECTION).document(counterId), data);
+                                transaction.set(counterReference, data);
                                 return next;
                             })
                     .get();
@@ -250,13 +261,56 @@ public abstract class AbstractFirestoreRepository<T, ID>
         }
     }
 
+    /**
+     * Bootstraps a missing counter from already persisted documents. This matters when the
+     * application is migrated to Firestore or when a counter document is restored separately from
+     * its collection.
+     */
+    private long maxPersistedId(String counterName)
+            throws InterruptedException, ExecutionException {
+        String sourceCollection = counterName.split("__", 2)[0];
+        QuerySnapshot snapshot = firestore.collection(sourceCollection).get().get();
+        long maximum = 0L;
+        for (QueryDocumentSnapshot document : snapshot.getDocuments()) {
+            maximum = Math.max(maximum, numericValue(document.getId()));
+            maximum = Math.max(maximum, maxNestedId(document.getData()));
+        }
+        return maximum;
+    }
+
+    private long maxNestedId(Object value) {
+        if (value instanceof Map<?, ?> map) {
+            long maximum = numericValue(map.get("id"));
+            for (Object nested : map.values()) maximum = Math.max(maximum, maxNestedId(nested));
+            return maximum;
+        }
+        if (value instanceof Collection<?> collection) {
+            long maximum = 0L;
+            for (Object nested : collection) maximum = Math.max(maximum, maxNestedId(nested));
+            return maximum;
+        }
+        return 0L;
+    }
+
+    private long numericValue(Object value) {
+        if (value instanceof Number number) return number.longValue();
+        if (value == null) return 0L;
+        try {
+            return Long.parseLong(value.toString());
+        } catch (NumberFormatException ignored) {
+            return 0L;
+        }
+    }
+
     private void setLifecycleTimestamps(Object entity) {
         if (readField(entity, "createdAt") == null) writeField(entity, "createdAt", Instant.now());
-        if (findField(entity.getClass(), "updatedAt") != null) writeField(entity, "updatedAt", Instant.now());
+        if (findField(entity.getClass(), "updatedAt") != null)
+            writeField(entity, "updatedAt", Instant.now());
     }
 
     private void assignNestedIds(Object value, IdentityHashMap<Object, Boolean> visited) {
-        if (value == null || isSimple(value.getClass()) || visited.put(value, Boolean.TRUE) != null) return;
+        if (value == null || isSimple(value.getClass()) || visited.put(value, Boolean.TRUE) != null)
+            return;
         if (value instanceof Collection<?> collection) {
             collection.forEach(item -> assignNestedIds(item, visited));
             return;
@@ -265,7 +319,10 @@ public abstract class AbstractFirestoreRepository<T, ID>
         if (idField != null
                 && (idField.getType() == Long.class || idField.getType() == long.class)
                 && readField(value, "id") == null) {
-            writeField(value, "id", nextIdFor(collectionName + "__" + value.getClass().getSimpleName()));
+            writeField(
+                    value,
+                    "id",
+                    nextIdFor(collectionName + "__" + value.getClass().getSimpleName()));
         }
         for (Field field : allFields(value.getClass())) {
             if (Modifier.isStatic(field.getModifiers()) || field.isSynthetic()) continue;
@@ -274,10 +331,13 @@ public abstract class AbstractFirestoreRepository<T, ID>
         }
     }
 
-    private Map<String, Object> encodeObject(Object source, int depth) {
+    private Map<String, Object> encodeObject(Object source, int depth, boolean rootEntity) {
         Map<String, Object> data = new HashMap<>();
         for (Field field : allFields(source.getClass())) {
             if (Modifier.isStatic(field.getModifiers()) || field.isSynthetic()) continue;
+            // Password hashes belong only to the users collection. Related snapshots must never
+            // duplicate credentials in surveys, reports, comments, or other documents.
+            if (!rootEntity && field.getName().equals("passwordHash")) continue;
             try {
                 field.setAccessible(true);
                 Object value = field.get(source);
@@ -288,7 +348,8 @@ public abstract class AbstractFirestoreRepository<T, ID>
                 }
                 data.put(field.getName(), encodeValue(value, depth - 1));
             } catch (IllegalAccessException exception) {
-                throw new IllegalStateException("Could not serialize domain field " + field.getName(), exception);
+                throw new IllegalStateException(
+                        "Could not serialize domain field " + field.getName(), exception);
             }
         }
         return data;
@@ -304,7 +365,7 @@ public abstract class AbstractFirestoreRepository<T, ID>
         if (value instanceof Collection<?> collection) {
             return collection.stream().map(item -> encodeValue(item, depth)).toList();
         }
-        return encodeObject(value, depth);
+        return encodeObject(value, depth, false);
     }
 
     private <R> R decodeObject(Map<String, Object> data, Class<R> type, Type genericType) {
@@ -316,14 +377,17 @@ public abstract class AbstractFirestoreRepository<T, ID>
             for (Field field : allFields(type)) {
                 if (Modifier.isStatic(field.getModifiers()) || field.isSynthetic()) continue;
                 if (!data.containsKey(field.getName())) continue;
-                Object converted = decodeValue(data.get(field.getName()), field.getType(), field.getGenericType());
+                Object converted =
+                        decodeValue(
+                                data.get(field.getName()), field.getType(), field.getGenericType());
                 if (converted == null && field.getType().isPrimitive()) continue;
                 field.setAccessible(true);
                 field.set(target, converted);
             }
             return target;
         } catch (ReflectiveOperationException exception) {
-            throw new IllegalStateException("Could not deserialize " + type.getSimpleName(), exception);
+            throw new IllegalStateException(
+                    "Could not deserialize " + type.getSimpleName(), exception);
         }
     }
 
@@ -332,7 +396,8 @@ public abstract class AbstractFirestoreRepository<T, ID>
         if (type == String.class || type == Object.class) return value.toString();
         if (type == Long.class || type == long.class) return ((Number) value).longValue();
         if (type == Integer.class || type == int.class) return ((Number) value).intValue();
-        if (type == Boolean.class || type == boolean.class) return value instanceof Boolean b ? b : Boolean.parseBoolean(value.toString());
+        if (type == Boolean.class || type == boolean.class)
+            return value instanceof Boolean b ? b : Boolean.parseBoolean(value.toString());
         if (type == Double.class || type == double.class) return ((Number) value).doubleValue();
         if (type == byte[].class) return Base64.getDecoder().decode(value.toString());
         if (type == Instant.class) return Instant.parse(value.toString());
@@ -361,7 +426,8 @@ public abstract class AbstractFirestoreRepository<T, ID>
         if (type.isInstance(value)) return value;
         if (type == Long.class || type == long.class) return Long.valueOf(value.toString());
         if (type == Integer.class || type == int.class) return Integer.valueOf(value.toString());
-        if (type == Boolean.class || type == boolean.class) return Boolean.valueOf(value.toString());
+        if (type == Boolean.class || type == boolean.class)
+            return Boolean.valueOf(value.toString());
         return value;
     }
 
@@ -380,14 +446,18 @@ public abstract class AbstractFirestoreRepository<T, ID>
 
     private List<Field> allFields(Class<?> type) {
         List<Field> fields = new ArrayList<>();
-        for (Class<?> current = type; current != null && current != Object.class; current = current.getSuperclass()) {
+        for (Class<?> current = type;
+                current != null && current != Object.class;
+                current = current.getSuperclass()) {
             fields.addAll(List.of(current.getDeclaredFields()));
         }
         return fields;
     }
 
     private Field findField(Class<?> type, String name) {
-        for (Class<?> current = type; current != null && current != Object.class; current = current.getSuperclass()) {
+        for (Class<?> current = type;
+                current != null && current != Object.class;
+                current = current.getSuperclass()) {
             try {
                 return current.getDeclaredField(name);
             } catch (NoSuchFieldException ignored) {

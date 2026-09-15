@@ -1,42 +1,27 @@
 package com.experimentos.backend.iam.domain;
 
 import com.experimentos.backend.shared.security.Role;
-import jakarta.persistence.*;
 import java.time.Instant;
 
-@Entity
-@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
     private String username;
 
-    @Column(nullable = true, unique = true, length = 255)
     private String email;
 
-    @Column(name = "password_hash", nullable = true)
     private String passwordHash;
 
-    @Column(name = "display_name", nullable = false, length = 100)
     private String displayName;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 30)
     private Role role;
 
-    @Column(nullable = false)
     private boolean enabled = true;
 
-    @Column(name = "system_owner", nullable = false)
     private boolean systemOwner;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
     protected User() {}
@@ -47,16 +32,6 @@ public class User {
         this.passwordHash = passwordHash;
         this.displayName = displayName;
         this.role = role;
-    }
-
-    @PrePersist
-    void onCreate() {
-        createdAt = updatedAt = Instant.now();
-    }
-
-    @PreUpdate
-    void onUpdate() {
-        updatedAt = Instant.now();
     }
 
     public Long getId() {
