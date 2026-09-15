@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: safespace-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: master
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /v3/api-docs
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: PORT
+        value: "10000"
+      - key: FIREBASE_PROJECT_ID
+        value: safespace-dev-f82ac
+      - key: GOOGLE_APPLICATION_CREDENTIALS
+        value: /etc/secrets/firebase-service-account.json
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: PASSWORD_RESET_URL_BASE
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
