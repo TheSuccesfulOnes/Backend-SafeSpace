@@ -25,8 +25,8 @@ public class LocalAdminInitializer implements CommandLineRunner {
             @Value("${app.local-admin.password}") String password) {
         this.users = users;
         this.encoder = encoder;
-        this.username = username;
-        this.password = password;
+        this.username = requireConfiguredValue(username, "LOCAL_ADMIN_USERNAME");
+        this.password = requireConfiguredValue(password, "LOCAL_ADMIN_PASSWORD");
     }
 
     @Override
@@ -56,5 +56,13 @@ public class LocalAdminInitializer implements CommandLineRunner {
             admin.changeRole(Role.SYSTEM_ADMIN);
         }
         users.save(admin);
+    }
+
+    private static String requireConfiguredValue(String value, String environmentVariable) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException(
+                    environmentVariable + " must be configured when the local profile is active");
+        }
+        return value;
     }
 }

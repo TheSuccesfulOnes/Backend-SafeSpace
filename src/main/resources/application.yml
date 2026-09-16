@@ -27,7 +27,7 @@ app:
     expiration-minutes: ${JWT_EXPIRATION_MINUTES:30}
   local-admin:
     username: ${LOCAL_ADMIN_USERNAME:admin}
-    password: ${LOCAL_ADMIN_PASSWORD:admin123}
+    password: ${LOCAL_ADMIN_PASSWORD:}
   ai:
     enabled: ${AI_ENABLED:true}
     api-key: ${GEMINI_API_KEY:}

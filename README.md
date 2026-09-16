@@ -17,17 +17,16 @@ No se necesita MySQL. Configura las credenciales fuera del repositorio:
 $env:FIREBASE_PROJECT_ID = "safespace-dev-f82ac"
 $env:GOOGLE_APPLICATION_CREDENTIALS = "C:\ruta\segura\firebase-service-account.json"
 $env:JWT_SECRET = "una-clave-local-de-al-menos-32-caracteres"
+$env:LOCAL_ADMIN_USERNAME = "admin"
+$env:LOCAL_ADMIN_PASSWORD = "define-una-clave-local-segura"
 mvn spring-boot:run
 ```
 
 La API estará disponible en `http://localhost:8080` y Swagger en `http://localhost:8080/swagger-ui.html`.
 
-El perfil `local` crea un administrador inicial solamente si no existe:
-
-- Usuario: `admin`
-- Contraseña: `admin123`
-
-Para cambiarlo, usa `LOCAL_ADMIN_USERNAME` y `LOCAL_ADMIN_PASSWORD`. No uses estas credenciales en producción.
+El perfil `local` crea un administrador inicial solamente si no existe. Debes configurar
+`LOCAL_ADMIN_USERNAME` y `LOCAL_ADMIN_PASSWORD` fuera del repositorio; el backend ya no incluye
+una contraseña predeterminada. No reutilices credenciales locales en producción.
 
 ## Firestore
 
