@@ -48,8 +48,9 @@ public class MoodService {
 
     @Transactional(readOnly = true)
     public MoodDtos.MoodSummary summary(LocalDate date) {
+        LocalDate summaryDate = date == null ? businessDate() : date;
         Map<com.experimentos.backend.mood.domain.Mood, Long> distribution =
-                moods.findByMoodDate(date).stream()
+                moods.findByMoodDate(summaryDate).stream()
                         .map(MoodEntry::getMood)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         Arrays.stream(com.experimentos.backend.mood.domain.Mood.values())
@@ -58,7 +59,7 @@ public class MoodService {
         long activeEmployees = users.countByRoleAndEnabledTrue(Role.EMPLOYEE);
         int responseRate = calculateResponseRate(totalResponses, activeEmployees);
         return new MoodDtos.MoodSummary(
-                date, totalResponses, distribution, activeEmployees, responseRate);
+                summaryDate, totalResponses, distribution, activeEmployees, responseRate);
     }
 
     private int calculateResponseRate(long totalResponses, long activeEmployees) {

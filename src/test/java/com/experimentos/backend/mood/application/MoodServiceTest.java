@@ -13,6 +13,7 @@ import com.experimentos.backend.mood.infrastructure.MoodEntryRepository;
 import com.experimentos.backend.mood.interfaces.MoodDtos;
 import com.experimentos.backend.shared.security.Role;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
@@ -89,6 +90,18 @@ class MoodServiceTest {
         assertThat(summary.responseRate()).isEqualTo(50);
         assertThat(summary.distribution()).containsEntry(Mood.VERY_GOOD, 1L);
         verify(users).countByRoleAndEnabledTrue(Role.EMPLOYEE);
+    }
+
+    @Test
+    void summaryWithoutDateUsesBusinessTimezoneDate() {
+        LocalDate businessDate = LocalDate.now(ZoneId.of("America/Lima"));
+        when(moods.findByMoodDate(businessDate)).thenReturn(List.of());
+        when(users.countByRoleAndEnabledTrue(Role.EMPLOYEE)).thenReturn(0L);
+
+        MoodDtos.MoodSummary summary = new MoodService(users, moods).summary(null);
+
+        assertThat(summary.date()).isEqualTo(businessDate);
+        verify(moods).findByMoodDate(businessDate);
     }
 
     private void authenticateAs(String username) {

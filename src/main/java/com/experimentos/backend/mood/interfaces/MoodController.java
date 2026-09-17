@@ -31,6 +31,6 @@ public class MoodController {
     public MoodDtos.MoodSummary summary(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                     LocalDate date) {
-        return service.summary(date == null ? LocalDate.now() : date);
+        return service.summary(date);
     }
 }
