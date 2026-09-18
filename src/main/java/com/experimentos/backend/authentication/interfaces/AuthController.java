@@ -1,12 +1,14 @@
 package com.experimentos.backend.authentication.interfaces;
 
 import com.experimentos.backend.authentication.application.AuthService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@SecurityRequirements
 public class AuthController {
     private final AuthService authService;
     private final com.experimentos.backend.authentication.application.PasswordResetService
