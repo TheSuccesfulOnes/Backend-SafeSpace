@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "scope": "Validation owners in this backend; execution counts are individual Surefire testcases, not assertions or code coverage.",
+  "owners": [
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityAdminDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityAdminDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/interfaces/AuthDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AuthDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/admin/interfaces/AdminDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/interfaces/AiDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/interfaces/CommentDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/interfaces/MoodDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/profile/interfaces/ProfileDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ProfileDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/interfaces/ReportDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyAdminDtos.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyAdminDtosValidationTest"
+        }
+      ],
+      "notes": "Hibernate Validator units and production snake_case Jackson/MockMvc contracts; service mocked."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/AuthService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AuthServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.authentication.application.AuthServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/admin/application/AdminService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.admin.application.AdminServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/profile/application/ProfileService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ProfileServiceValidationTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/payment/application/PaymentService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.PaymentServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.payment.application.PaymentServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/application/SurveyService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.survey.application.SurveyServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/application/AdminSurveyService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminSurveyServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.survey.application.AdminSurveyServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/application/CommentService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.comment.application.CommentServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/application/ActivityService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityServiceValidationTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/application/AdminActivityService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminActivityServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.activity.application.AdminActivityServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/application/AiChatService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiChatServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.ai.application.AiChatServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/application/MoodService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.mood.application.MoodServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/application/ReportService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.report.application.ReportServiceTest"
+        }
+      ],
+      "notes": "Service units plus actual controller/service local integration with mocked persistence/provider."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetServiceValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetServiceTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetRateLimiter.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetRateLimiterValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/RegistrationPasswordPolicy.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.domain.RegistrationPasswordPolicyValidationTest"
+        },
+        {
+          "className": "com.experimentos.backend.authentication.domain.RegistrationPasswordPolicyTest"
+        }
+      ],
+      "notes": "Policy integration additionally exercised in AuthServiceValidationTest; counted once in overall totals."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/PasswordResetToken.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.domain.PasswordResetTokenValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/application/AiProperties.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.ai.application.AiPropertiesValidationTest"
+        }
+      ],
+      "notes": "Parent-owned 12 units + 8 Spring Binder integrations."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetProperties.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetPropertiesValidationTest"
+        }
+      ],
+      "notes": "Parent-owned 12 units + 8 Spring Binder integrations."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/CorsConfig.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.security.CorsConfigValidationTest"
+        }
+      ],
+      "notes": "Parent-owned 12 units + 8 actual CorsFilter HTTP integrations."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/JwtService.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.JwtServiceValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/JwtAuthenticationFilter.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.JwtAuthenticationFilterValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/CurrentUser.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CurrentUserValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/SecurityConfig.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.security.SecurityConfigValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/infrastructure/firebase/configuration/FirebaseConfig.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.infrastructure.firebase.configuration.FirebaseConfigValidationTest"
+        }
+      ],
+      "notes": "Static SDK/ADC interception and local Spring configuration contexts; no credential loading or real Firebase initialization."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/application/LocalAdminInitializer.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.iam.application.LocalAdminInitializerValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/infrastructure/GeminiAiAdapter.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.GeminiAiAdapterValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/infrastructure/firebase/repositories/AbstractFirestoreRepository.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.FirestoreValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/domain/Comment.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentOwnershipValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/domain/Report.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportPrivacyValidationTest"
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityController.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityControllerSecurityTest"
+        }
+      ],
+      "notes": "Actual method/route security with real JWT parsing and Spring Security; 20 individual local HTTP scenarios."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyController.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyControllerSecurityTest"
+        }
+      ],
+      "notes": "Actual method/route security with real JWT parsing and Spring Security; 20 individual local HTTP scenarios."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/interfaces/MoodController.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodControllerSecurityTest"
+        }
+      ],
+      "notes": "Actual method/route security with real JWT parsing and Spring Security; 20 individual local HTTP scenarios."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/interfaces/ReportController.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportControllerSecurityTest"
+        }
+      ],
+      "notes": "Actual method/route security with real JWT parsing and Spring Security; 20 individual local HTTP scenarios."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/interfaces/AiChatController.java",
+      "minimumCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiChatControllerSecurityTest"
+        }
+      ],
+      "notes": "Actual method/route security with real JWT parsing and Spring Security; 20 individual local HTTP scenarios."
+    }
+  ],
+  "excludedCandidates": [
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/domain/UserPreferences.java",
+      "reason": "Stores values without validating them; supported languages/themes are enforced by ProfileService. Getters/defaults are not additional validation owners."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/domain/User.java",
+      "reason": "Plain entity mutations/getters; account uniqueness, roles and owner/access rules belong to services/security."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/domain/WeeklyActivity.java",
+      "reason": "State assignment and preserving option IDs when labels are equal; no independent rejection policy. Lifecycle/immutability rules exercised by both activity services."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/domain/Survey.java",
+      "reason": "State assignment and field updates; published/duplicate-answer permission rules belong to services."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/payment/interfaces/PaymentDtos.java",
+      "reason": "Response mapping only; multipart input guards live in PaymentService/PaymentController binding."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/configuration/OpenApiConfig.java",
+      "reason": "API documentation metadata, no input/business/security enforcement. Existing documentation tests retained."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/infrastructure/GeminiClientConfiguration.java",
+      "reason": "Constructs a bounded HTTP client, no independent input validator. Adapter HTTP tests intercept every request."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/interfaces/ApiExceptionHandler.java",
+      "reason": "Maps already-raised exceptions to HTTP status/safe messages; exercised by local controller/service integrations, not an independent validator."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/audit/application/AuditService.java",
+      "reason": "Records audit events; no independent input/business guard."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/PasswordResetConfiguration.java",
+      "reason": "Enables binding for PasswordResetProperties; no independent input validation."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/LoggingPasswordResetNotificationAdapter.java",
+      "reason": "Notification transport/logging implementation, not an input validator; no real notification delivery tested."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/UnconfiguredPasswordResetNotificationAdapter.java",
+      "reason": "Unconfigured notification logging transport, not a data/business validation policy."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/PasswordResetNotificationPort.java",
+      "reason": "Interface contract only."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/domain/ActivityVote.java",
+      "reason": "Composite-key equals/hashCode and stored entity fields; identity mapping regressions retained without treating factory/equality checks as validators."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/infrastructure/CommentLikeEntity.java",
+      "reason": "Composite-key equals/hashCode, not an access-control rule."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/PasswordResetTokenRepository.java",
+      "reason": "Query/deletion delegation; token hash/usability policy is owned by PasswordResetToken and tested with this repository in memory."
+    },
+    {
+      "source": "src/main/java/**/infrastructure/*Repository.java (except AbstractFirestoreRepository)",
+      "reason": "Collection query filters and object mapping, not independent validation policies. Persistence error/encoding guards are counted under AbstractFirestoreRepository."
+    },
+    {
+      "source": "src/main/java/**/interfaces/*Controller.java (without @PreAuthorize)",
+      "reason": "Delegates DTO @Valid and routes/services; constraints are counted under the DTO source and business rules under the service, not counted again as wrapper validators."
+    },
+    {
+      "source": "src/main/java/**/domain/{enums,response records,plain entities}.java (except Comment,Report,PasswordResetToken,RegistrationPasswordPolicy)",
+      "reason": "Declared value sets, DTO serialization, getters and state holders without a separate validator; actual enum input rejection exercised through DTO/HTTP suites."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/BackendApiApplication.java",
+      "reason": "Bootstrap entry point, no validation policy."
+    }
+  ],
+  "supplementarySuites": [
+    {
+      "className": "com.experimentos.backend.shared.configuration.OpenApiConfigTest",
+      "type": "unit"
+    },
+    {
+      "className": "com.experimentos.backend.shared.infrastructure.firebase.repositories.CompositeIdRepositoryTest",
+      "type": "integration"
+    }
+  ]
+}

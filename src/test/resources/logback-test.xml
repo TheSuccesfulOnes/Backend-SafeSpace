@@ -1,0 +1,4 @@
+<configuration>
+    <!-- Keep local contract matrices readable; Surefire still reports every failure and error. -->
+    <root level="OFF" />
+</configuration>

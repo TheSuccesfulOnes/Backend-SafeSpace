@@ -22,10 +22,17 @@ public class MoodService {
     private static final ZoneId BUSINESS_ZONE = ZoneId.of("America/Lima");
     private final UserRepository users;
     private final MoodEntryRepository moods;
+    private final java.time.Clock clock;
 
+    @org.springframework.beans.factory.annotation.Autowired
     public MoodService(UserRepository users, MoodEntryRepository moods) {
+        this(users, moods, java.time.Clock.systemUTC());
+    }
+
+    public MoodService(UserRepository users, MoodEntryRepository moods, java.time.Clock clock) {
         this.users = users;
         this.moods = moods;
+        this.clock = clock;
     }
 
     @Transactional
@@ -68,7 +75,7 @@ public class MoodService {
     }
 
     private LocalDate businessDate() {
-        return LocalDate.now(BUSINESS_ZONE);
+        return LocalDate.now(clock.withZone(BUSINESS_ZONE));
     }
 
     private User currentUser() {

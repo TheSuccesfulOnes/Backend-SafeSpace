@@ -1,0 +1,5955 @@
+{
+  "schemaVersion": 1,
+  "command": "pwsh -NoProfile -File tests/run-tests.ps1",
+  "countingRule": "Each individual Surefire testcase is one case. Parameterized and dynamic invocations count individually. Assertion counts and code coverage percentages are not used.",
+  "ownerCount": 45,
+  "executedSuites": 59,
+  "executedCases": 958,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "owners": [
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ActivityDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityAdminDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityAdminDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ActivityAdminDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/interfaces/AuthDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AuthDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AuthDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/admin/interfaces/AdminDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AdminDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/interfaces/AiDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AiDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/interfaces/CommentDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/CommentDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/interfaces/MoodDtos.java",
+      "caseCount": 20,
+      "unitCases": 6,
+      "integrationCases": 14,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/MoodDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 6,
+          "integrationCases": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/profile/interfaces/ProfileDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ProfileDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ProfileDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/interfaces/ReportDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ReportDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/SurveyDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyAdminDtos.java",
+      "caseCount": 20,
+      "unitCases": 10,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyAdminDtosValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/SurveyAdminDtosValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 10,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/AuthService.java",
+      "caseCount": 31,
+      "unitCases": 23,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AuthServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AuthServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.authentication.application.AuthServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/application/AuthServiceTest.java",
+          "caseCount": 11,
+          "unitCases": 11,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "registerRejectsDifferentPasswords",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsPasswordsExceedingBcryptByteLimit",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "loginRejectsInvalidPassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerCreatesAnEmployeeWithEncodedPassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "registerRejectsWeakPasswordsBeforeAccessingPersistence(String)[7]",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/admin/application/AdminService.java",
+      "caseCount": 29,
+      "unitCases": 21,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AdminServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.admin.application.AdminServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/admin/application/AdminServiceTest.java",
+          "caseCount": 9,
+          "unitCases": 9,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "adminCanCreateAnHrMemberWithoutAnEmail",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanUpdateUserAndResetPassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCannotDeleteTheOnlySystemAdministrator",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanDisableAndReenableAUser",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanDeleteAUserWithoutOwnedContent",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCannotCreateUserWithAnExistingUsername",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanCreateAnEmployeeWithAnEncodedPassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCannotCreateUserWithAnExistingEmail",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "secondaryAdminCannotManageTheSystemOwnerAccount",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/profile/application/ProfileService.java",
+      "caseCount": 24,
+      "unitCases": 14,
+      "integrationCases": 10,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ProfileServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ProfileServiceValidationTest.java",
+          "caseCount": 24,
+          "unitCases": 14,
+          "integrationCases": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[13]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[14]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/payment/application/PaymentService.java",
+      "caseCount": 24,
+      "unitCases": 18,
+      "integrationCases": 6,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.PaymentServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/PaymentServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 14,
+          "integrationCases": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[13]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[14]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.payment.application.PaymentServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/payment/application/PaymentServiceTest.java",
+          "caseCount": 4,
+          "unitCases": 4,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "recordsValidPdfAndCalculatesNextPaymentDate",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "rejectsVouchersThatCouldExceedTheFirestoreDocumentLimit",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "rejectsAFileWithAFalsePdfExtension",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "rejectsAnEmptyBeneficiaryName",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/application/SurveyService.java",
+      "caseCount": 23,
+      "unitCases": 15,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/SurveyServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.survey.application.SurveyServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/survey/application/SurveyServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "duplicateSurveyAnswerIsRejectedBeforeSaving",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "surveyAnswerIsAlsoPublishedAsAnAnonymousRootComment",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "publishedSurveysExposeWhetherTheCurrentUserAlreadyAnswered",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/application/AdminSurveyService.java",
+      "caseCount": 23,
+      "unitCases": 15,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminSurveyServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AdminSurveyServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.survey.application.AdminSurveyServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/survey/application/AdminSurveyServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "adminCanReadDetailedSurveyAnswers",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanListEverySurveyAndItsAnswerCount",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanReopenAClosedSurvey",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/application/CommentService.java",
+      "caseCount": 23,
+      "unitCases": 15,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/CommentServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.comment.application.CommentServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/comment/application/CommentServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "allowsDeletingOwnedComment",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "rejectsDeletingAnotherUsersComment",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "marksOnlyOwnedCommentsAsDeletable",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/application/ActivityService.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ActivityServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/application/AdminActivityService.java",
+      "caseCount": 23,
+      "unitCases": 15,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AdminActivityServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AdminActivityServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.activity.application.AdminActivityServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/activity/application/AdminActivityServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "adminCanReopenAClosedActivity",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCanCreateAnActivityWithOptions",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "adminCannotChangeOptionsAfterVotingHasStarted",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/application/AiChatService.java",
+      "caseCount": 24,
+      "unitCases": 16,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiChatServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AiChatServiceValidationTest.java",
+          "caseCount": 21,
+          "unitCases": 13,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[13]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.ai.application.AiChatServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/ai/application/AiChatServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "rejectsMessagesOverConfiguredLimitBeforePersistence",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "usesSafeLocalFallbackWhenProviderIsNotConfigured",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "sendsOnlyRecentHistoryToConfiguredProvider",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/application/MoodService.java",
+      "caseCount": 24,
+      "unitCases": 16,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/MoodServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.mood.application.MoodServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/mood/application/MoodServiceTest.java",
+          "caseCount": 4,
+          "unitCases": 4,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "employeeCanSubmitMoodOncePerDay",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "duplicateDailyMoodIsRejected",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "summaryWithoutDateUsesBusinessTimezoneDate",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "summaryCalculatesAnonymousParticipationMetrics",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/application/ReportService.java",
+      "caseCount": 21,
+      "unitCases": 13,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ReportServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.report.application.ReportServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/report/application/ReportServiceTest.java",
+          "caseCount": 1,
+          "unitCases": 1,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "anonymousReportsRemainVisibleToTheirOwnerWithoutRevealingTheirIdentity",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetService.java",
+      "caseCount": 23,
+      "unitCases": 15,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/application/PasswordResetServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetServiceTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/application/PasswordResetServiceTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "createsSingleUseTokenAndChangesEmployeePassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "rejectsExpiredTokenBeforeChangingPassword",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "doesNotRevealWhetherIdentifierExists",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetRateLimiter.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetRateLimiterValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/application/PasswordResetRateLimiterValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/RegistrationPasswordPolicy.java",
+      "caseCount": 23,
+      "unitCases": 23,
+      "integrationCases": 0,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.domain.RegistrationPasswordPolicyValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/domain/RegistrationPasswordPolicyValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 20,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit(Case)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[13]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[14]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[15]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[16]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[17]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[18]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[19]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit(Case)[20]",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        },
+        {
+          "className": "com.experimentos.backend.authentication.domain.RegistrationPasswordPolicyTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/domain/RegistrationPasswordPolicyTest.java",
+          "caseCount": 3,
+          "unitCases": 3,
+          "integrationCases": 0,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "acceptsPasswordsMeetingTheRequirements(String)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "acceptsPasswordsMeetingTheRequirements(String)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "acceptsPasswordsMeetingTheRequirements(String)[3]",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/PasswordResetToken.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.domain.PasswordResetTokenValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/domain/PasswordResetTokenValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/application/AiProperties.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.ai.application.AiPropertiesValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/ai/application/AiPropertiesValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsExternalConfigurationWithoutCallingAProvider(String, Map, Expected)[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "normalizesConfiguration(String, AiProperties, Expected)[12]",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/application/PasswordResetProperties.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.authentication.application.PasswordResetPropertiesValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/authentication/application/PasswordResetPropertiesValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "bindsRecoverySettingsWithoutSendingEmail(String, Map, Expected)[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "appliesSafeConfigurationBounds(String, PasswordResetProperties, Expected)[12]",
+              "type": "unit",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/CorsConfig.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.security.CorsConfigValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/shared/security/CorsConfigValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "parsesOnlyExplicitConfiguredOrigins(String, String, List)[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "onlyRequiredMethodsAndHeadersAreConfigured",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "credentialedWildcardOriginIsRejectedByCorsValidation",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "corsFilterEnforcesTheConfiguredBoundary(String, String, String, String, int, boolean)[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/JwtService.java",
+      "caseCount": 20,
+      "unitCases": 8,
+      "integrationCases": 12,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.JwtServiceValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/JwtServiceValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 8,
+          "integrationCases": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/JwtAuthenticationFilter.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.JwtAuthenticationFilterValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/JwtAuthenticationFilterValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/CurrentUser.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CurrentUserValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/CurrentUserValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/security/SecurityConfig.java",
+      "caseCount": 20,
+      "unitCases": 4,
+      "integrationCases": 16,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.security.SecurityConfigValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/shared/security/SecurityConfigValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 4,
+          "integrationCases": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unitStoredAdminAuthorityRetained",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unitMissingHashUsesUnmatchablePlaceholder",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unitUnknownUserRejected",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unitDisabledAccountReflectsStoredState",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integrationRoutes(Case)[16]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/infrastructure/firebase/configuration/FirebaseConfig.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.shared.infrastructure.firebase.configuration.FirebaseConfigValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/shared/infrastructure/firebase/configuration/FirebaseConfigValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/application/LocalAdminInitializer.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.iam.application.LocalAdminInitializerValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/iam/application/LocalAdminInitializerValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/infrastructure/GeminiAiAdapter.java",
+      "caseCount": 20,
+      "unitCases": 2,
+      "integrationCases": 18,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.GeminiAiAdapterValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/GeminiAiAdapterValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 2,
+          "integrationCases": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/infrastructure/firebase/repositories/AbstractFirestoreRepository.java",
+      "caseCount": 20,
+      "unitCases": 12,
+      "integrationCases": 8,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.FirestoreValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/FirestoreValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 12,
+          "integrationCases": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[9]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[10]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[11]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[12]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/domain/Comment.java",
+      "caseCount": 20,
+      "unitCases": 8,
+      "integrationCases": 12,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.CommentOwnershipValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/CommentOwnershipValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 8,
+          "integrationCases": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/domain/Report.java",
+      "caseCount": 20,
+      "unitCases": 8,
+      "integrationCases": 12,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportPrivacyValidationTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ReportPrivacyValidationTest.java",
+          "caseCount": 20,
+          "unitCases": 8,
+          "integrationCases": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "unit()[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[4]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[5]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[6]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[7]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "unit()[8]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/interfaces/ActivityController.java",
+      "caseCount": 20,
+      "unitCases": 0,
+      "integrationCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ActivityControllerSecurityTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ActivityControllerSecurityTest.java",
+          "caseCount": 20,
+          "unitCases": 0,
+          "integrationCases": 20,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[19]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[20]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/interfaces/SurveyController.java",
+      "caseCount": 20,
+      "unitCases": 0,
+      "integrationCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.SurveyControllerSecurityTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/SurveyControllerSecurityTest.java",
+          "caseCount": 20,
+          "unitCases": 0,
+          "integrationCases": 20,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[19]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[20]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/mood/interfaces/MoodController.java",
+      "caseCount": 20,
+      "unitCases": 0,
+      "integrationCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.MoodControllerSecurityTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/MoodControllerSecurityTest.java",
+          "caseCount": 20,
+          "unitCases": 0,
+          "integrationCases": 20,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[19]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[20]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/report/interfaces/ReportController.java",
+      "caseCount": 20,
+      "unitCases": 0,
+      "integrationCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.ReportControllerSecurityTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/ReportControllerSecurityTest.java",
+          "caseCount": 20,
+          "unitCases": 0,
+          "integrationCases": 20,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[19]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[20]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/interfaces/AiChatController.java",
+      "caseCount": 20,
+      "unitCases": 0,
+      "integrationCases": 20,
+      "suites": [
+        {
+          "className": "com.experimentos.backend.validation.AiChatControllerSecurityTest",
+          "testSource": "src/test/java/com/experimentos/backend/validation/AiChatControllerSecurityTest.java",
+          "caseCount": 20,
+          "unitCases": 0,
+          "integrationCases": 20,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "name": "integration()[1]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[2]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[3]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[4]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[5]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[6]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[7]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[8]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[12]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[13]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[14]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[15]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[16]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[17]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[18]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[19]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[20]",
+              "type": "integration",
+              "result": "passed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "supplementarySuites": [
+    {
+      "className": "com.experimentos.backend.shared.configuration.OpenApiConfigTest",
+      "testSource": "src/test/java/com/experimentos/backend/shared/configuration/OpenApiConfigTest.java",
+      "caseCount": 1,
+      "unitCases": 1,
+      "integrationCases": 0,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "shouldExposeJwtBearerAuthenticationForProtectedOperations",
+          "type": "unit",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "className": "com.experimentos.backend.shared.infrastructure.firebase.repositories.CompositeIdRepositoryTest",
+      "testSource": "src/test/java/com/experimentos/backend/shared/infrastructure/firebase/repositories/CompositeIdRepositoryTest.java",
+      "caseCount": 2,
+      "unitCases": 0,
+      "integrationCases": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "name": "deletesCommentLikeUsingItsCompositeDocumentId",
+          "type": "integration",
+          "result": "passed"
+        },
+        {
+          "name": "deletesActivityVoteUsingItsCompositeDocumentId",
+          "type": "integration",
+          "result": "passed"
+        }
+      ]
+    }
+  ],
+  "excludedCandidates": [
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/domain/UserPreferences.java",
+      "reason": "Stores values without validating them; supported languages/themes are enforced by ProfileService. Getters/defaults are not additional validation owners."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/iam/domain/User.java",
+      "reason": "Plain entity mutations/getters; account uniqueness, roles and owner/access rules belong to services/security."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/domain/WeeklyActivity.java",
+      "reason": "State assignment and preserving option IDs when labels are equal; no independent rejection policy. Lifecycle/immutability rules exercised by both activity services."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/survey/domain/Survey.java",
+      "reason": "State assignment and field updates; published/duplicate-answer permission rules belong to services."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/payment/interfaces/PaymentDtos.java",
+      "reason": "Response mapping only; multipart input guards live in PaymentService/PaymentController binding."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/configuration/OpenApiConfig.java",
+      "reason": "API documentation metadata, no input/business/security enforcement. Existing documentation tests retained."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/ai/infrastructure/GeminiClientConfiguration.java",
+      "reason": "Constructs a bounded HTTP client, no independent input validator. Adapter HTTP tests intercept every request."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/shared/interfaces/ApiExceptionHandler.java",
+      "reason": "Maps already-raised exceptions to HTTP status/safe messages; exercised by local controller/service integrations, not an independent validator."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/audit/application/AuditService.java",
+      "reason": "Records audit events; no independent input/business guard."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/PasswordResetConfiguration.java",
+      "reason": "Enables binding for PasswordResetProperties; no independent input validation."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/LoggingPasswordResetNotificationAdapter.java",
+      "reason": "Notification transport/logging implementation, not an input validator; no real notification delivery tested."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/UnconfiguredPasswordResetNotificationAdapter.java",
+      "reason": "Unconfigured notification logging transport, not a data/business validation policy."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/domain/PasswordResetNotificationPort.java",
+      "reason": "Interface contract only."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/activity/domain/ActivityVote.java",
+      "reason": "Composite-key equals/hashCode and stored entity fields; identity mapping regressions retained without treating factory/equality checks as validators."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/comment/infrastructure/CommentLikeEntity.java",
+      "reason": "Composite-key equals/hashCode, not an access-control rule."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/authentication/infrastructure/PasswordResetTokenRepository.java",
+      "reason": "Query/deletion delegation; token hash/usability policy is owned by PasswordResetToken and tested with this repository in memory."
+    },
+    {
+      "source": "src/main/java/**/infrastructure/*Repository.java (except AbstractFirestoreRepository)",
+      "reason": "Collection query filters and object mapping, not independent validation policies. Persistence error/encoding guards are counted under AbstractFirestoreRepository."
+    },
+    {
+      "source": "src/main/java/**/interfaces/*Controller.java (without @PreAuthorize)",
+      "reason": "Delegates DTO @Valid and routes/services; constraints are counted under the DTO source and business rules under the service, not counted again as wrapper validators."
+    },
+    {
+      "source": "src/main/java/**/domain/{enums,response records,plain entities}.java (except Comment,Report,PasswordResetToken,RegistrationPasswordPolicy)",
+      "reason": "Declared value sets, DTO serialization, getters and state holders without a separate validator; actual enum input rejection exercised through DTO/HTTP suites."
+    },
+    {
+      "source": "src/main/java/com/experimentos/backend/BackendApiApplication.java",
+      "reason": "Bootstrap entry point, no validation policy."
+    }
+  ]
+}

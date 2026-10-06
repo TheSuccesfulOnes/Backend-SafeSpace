@@ -33,17 +33,29 @@ public class PaymentService {
     private final UserRepository users;
     private final AuditService auditService;
     private final long maxVoucherBytes;
+    private final java.time.Clock clock;
 
+    @org.springframework.beans.factory.annotation.Autowired
     public PaymentService(
             PaymentRepository payments,
             UserRepository users,
             AuditService auditService,
             @Value("${app.payment.max-voucher-bytes:700000}") long maxVoucherBytes) {
+        this(payments, users, auditService, maxVoucherBytes, java.time.Clock.systemUTC());
+    }
+
+    public PaymentService(
+            PaymentRepository payments,
+            UserRepository users,
+            AuditService auditService,
+            long maxVoucherBytes,
+            java.time.Clock clock) {
         this.payments = payments;
         this.users = users;
         this.auditService = auditService;
         this.maxVoucherBytes =
                 Math.min(Math.max(1L, maxVoucherBytes), MAX_SAFE_FIRESTORE_VOUCHER_BYTES);
+        this.clock = clock;
     }
 
     @Transactional(readOnly = true)
@@ -64,7 +76,7 @@ public class PaymentService {
         User actor = currentAdmin();
         ValidatedVoucher validatedVoucher = validateVoucher(voucher);
         LocalDate nextPaymentDate =
-                LocalDate.now(BUSINESS_ZONE).plusMonths(plan.getDurationMonths());
+                LocalDate.now(clock.withZone(BUSINESS_ZONE)).plusMonths(plan.getDurationMonths());
 
         Payment payment =
                 payments.save(
