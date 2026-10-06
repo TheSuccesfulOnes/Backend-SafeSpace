@@ -1,5 +1,6 @@
 package com.experimentos.backend.authentication.application;
 
+import com.experimentos.backend.authentication.domain.RegistrationPasswordPolicy;
 import com.experimentos.backend.authentication.interfaces.AuthDtos;
 import com.experimentos.backend.iam.domain.User;
 import com.experimentos.backend.iam.infrastructure.UserRepository;
@@ -25,6 +26,7 @@ public class AuthService {
     @Transactional
     public AuthDtos.AuthResponse register(AuthDtos.RegisterRequest request) {
         validatePasswordConfirmation(request.password(), request.confirmPassword());
+        RegistrationPasswordPolicy.validate(request.password());
         if (users.existsByUsernameIgnoreCase(request.username()))
             throw new IllegalArgumentException("Username is already in use");
         if (users.existsByEmailIgnoreCase(request.email()))
