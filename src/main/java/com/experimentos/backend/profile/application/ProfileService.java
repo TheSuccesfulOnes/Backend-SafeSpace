@@ -8,6 +8,7 @@ import com.experimentos.backend.profile.interfaces.ProfileDtos;
 import com.experimentos.backend.shared.domain.Theme;
 import com.experimentos.backend.shared.security.CurrentUser;
 import com.experimentos.backend.shared.security.JwtService;
+import java.util.Locale;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -80,10 +81,17 @@ public class ProfileService {
     @Transactional
     public ProfileDtos.ProfileResponse updatePreferences(
             ProfileDtos.UpdatePreferencesRequest request) {
+        String language =
+                request.language() == null
+                        ? ""
+                        : request.language().trim().toLowerCase(Locale.ROOT);
+        if (!language.equals("es") && !language.equals("en")) {
+            throw new IllegalArgumentException("Language must be es or en");
+        }
         User user = findCurrentUser();
         UserPreferences preference =
                 preferences.findById(user.getId()).orElseGet(() -> new UserPreferences(user));
-        preference.update(request.language(), Theme.valueOf(request.theme().toUpperCase()));
+        preference.update(language, Theme.valueOf(request.theme().toUpperCase(Locale.ROOT)));
         preferences.save(preference);
         return getProfile();
     }
