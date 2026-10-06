@@ -39,7 +39,10 @@ public class Comment {
     }
 
     public boolean isOwnedBy(Long userId) {
-        return user != null && user.getId().equals(userId);
+        return user != null
+                && userId != null
+                && user.getId() != null
+                && user.getId().equals(userId);
     }
 
     public String getContent() {
