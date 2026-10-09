@@ -127,4 +127,29 @@ class AuthServiceTest {
                 .hasMessage("Invalid credentials");
         verifyNoInteractions(jwtService);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"maria", " maria ", "maria@example.com", " maria@example.com "})
+    void loginNormalizesIdentifierWithoutChangingPassword(String identifier) {
+        String password = " Password123! ";
+        User user =
+                new User(
+                        "maria",
+                        "maria@example.com",
+                        passwordEncoder.encode(password),
+                        "Maria",
+                        com.experimentos.backend.shared.security.Role.EMPLOYEE);
+        when(users.findByUsernameIgnoreCaseOrEmailIgnoreCase(identifier.trim(), identifier.trim()))
+                .thenReturn(Optional.of(user));
+        when(jwtService.createToken(user)).thenReturn("synthetic-token");
+
+        AuthDtos.AuthResponse result =
+                authService.login(new AuthDtos.LoginRequest(identifier, password));
+
+        assertThat(result.username()).isEqualTo("maria");
+        assertThat(result.token()).isEqualTo("synthetic-token");
+        verify(users)
+                .findByUsernameIgnoreCaseOrEmailIgnoreCase(identifier.trim(), identifier.trim());
+        verify(jwtService).createToken(user);
+    }
 }

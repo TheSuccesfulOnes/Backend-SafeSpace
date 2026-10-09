@@ -296,6 +296,56 @@ class AuthServiceValidationTest extends ScenarioContract {
                             f.noToken();
                         }),
                 integration(
+                        "username login HTTP trims identifier",
+                        () -> {
+                            var f = new Fixture();
+                            f.loginUser();
+                            var r =
+                                    http(
+                                            f.controller,
+                                            "POST",
+                                            "/api/v1/auth/login",
+                                            "{\"identifier\":\" actor \",\"password\":\"Password1!\"}",
+                                            200);
+                            assertThat(r.getResponse().getContentAsString())
+                                    .contains("synthetic-token");
+                            verify(f.users)
+                                    .findByUsernameIgnoreCaseOrEmailIgnoreCase("actor", "actor");
+                        }),
+                integration(
+                        "email login HTTP trims identifier and preserves password",
+                        () -> {
+                            var f = new Fixture();
+                            when(f.users.findByUsernameIgnoreCaseOrEmailIgnoreCase(
+                                            "actor@example.test", "actor@example.test"))
+                                    .thenReturn(Optional.of(f.actor));
+                            when(f.encoder.matches(" Password1! ", f.actor.getPasswordHash()))
+                                    .thenReturn(true);
+                            var r =
+                                    http(
+                                            f.controller,
+                                            "POST",
+                                            "/api/v1/auth/login",
+                                            "{\"identifier\":\" actor@example.test \",\"password\":\" Password1! \"}",
+                                            200);
+                            assertThat(r.getResponse().getContentAsString())
+                                    .contains("synthetic-token");
+                            verify(f.encoder).matches(" Password1! ", f.actor.getPasswordHash());
+                        }),
+                integration(
+                        "blank login identifier HTTP rejects before account lookup",
+                        () -> {
+                            var f = new Fixture();
+                            http(
+                                    f.controller,
+                                    "POST",
+                                    "/api/v1/auth/login",
+                                    "{\"identifier\":\"   \",\"password\":\"Password1!\"}",
+                                    400);
+                            verifyNoInteractions(f.users);
+                            f.noToken();
+                        }),
+                integration(
                         "wrong password returns400",
                         () -> {
                             var f = new Fixture();

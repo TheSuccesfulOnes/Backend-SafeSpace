@@ -22,9 +22,9 @@ The underlying commands are `mvn test`, `mvn spotless:check`, and `mvn -DskipTes
 
 ## Verified execution
 
-The independently verified full Maven run produced **958 executed cases in 59 suites, with zero failures, errors or skipped cases**. Spotless verification and executable-JAR packaging also passed. The existing 53 cases in 14 suites were retained.
+The independently verified full Maven run produced **965 executed cases in 59 suites, with zero failures, errors or skipped cases**. Spotless verification and executable-JAR packaging also passed. The existing cases were retained; login regression coverage adds four unit invocations and three local HTTP integration cases.
 
-All **45 inventoried validation owners have at least 20 executed cases**. Their mapped suites total **955 cases: 487 unit and 468 local integration**; two supplementary suites contribute another three cases (1 unit and 2 local integration). These are executed test invocations, never assertion counts or code-coverage percentages.
+All **45 inventoried validation owners have at least 20 executed cases**. Their mapped suites total **962 cases: 491 unit and 471 local integration**; two supplementary suites contribute another three cases (1 unit and 2 local integration). These are executed test invocations, never assertion counts or code-coverage percentages.
 
 FirebaseConfigValidationTest passed all 20 scenarios (12 unit and 8 local Spring/SDK integration). Its assertions use public SDK contracts; the credential fixture permits local scoping while explicitly forbidding token refresh and request-metadata retrieval. All ADC/app/Firestore entry points remain intercepted.
 
@@ -55,7 +55,7 @@ Source paths below are relative to `src/main/java/com/experimentos/backend/`. Su
 | `report/interfaces/ReportDtos.java` | `ReportDtosValidationTest`: 20 (10U/10I) |
 | `survey/interfaces/SurveyDtos.java` | `SurveyDtosValidationTest`: 20 (10U/10I) |
 | `survey/interfaces/SurveyAdminDtos.java` | `SurveyAdminDtosValidationTest`: 20 (10U/10I) |
-| `authentication/application/AuthService.java` | `AuthServiceValidationTest`: 20 (12U/8I)<br>`AuthServiceTest`: 11 (11U/0I) |
+| `authentication/application/AuthService.java` | `AuthServiceValidationTest`: 23 (12U/11I)<br>`AuthServiceTest`: 15 (15U/0I) |
 | `admin/application/AdminService.java` | `AdminServiceValidationTest`: 20 (12U/8I)<br>`AdminServiceTest`: 9 (9U/0I) |
 | `profile/application/ProfileService.java` | `ProfileServiceValidationTest`: 24 (14U/10I) |
 | `payment/application/PaymentService.java` | `PaymentServiceValidationTest`: 20 (14U/6I)<br>`PaymentServiceTest`: 4 (4U/0I) |
@@ -98,6 +98,8 @@ Supplementary retained suites, not separate validation owners:
 | shared/infrastructure/firebase/repositories/CompositeIdRepositoryTest | 2 | Local integration: entity/composite-id mapping through mocked SDK |
 
 RegistrationPasswordPolicy's controller/service integration is additionally exercised by AuthServiceValidationTest. Those invocations remain counted once under AuthService, rather than duplicating global counts under the policy source.
+
+Login automation uses the existing `POST /api/v1/auth/login` JSON contract (`identifier`, `password`). AuthService trims the username/email before account lookup and preserves the password exactly. HTTP regression cases cover padded usernames, padded emails with significant password spaces, and blank identifiers rejected before persistence access. HTML IDs and native resource tags belong to the clients and are not additional API fields.
 
 ## Meaningful scenario coverage
 

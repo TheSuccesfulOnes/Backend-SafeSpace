@@ -48,9 +48,9 @@ public class AuthService {
 
     @Transactional(readOnly = true)
     public AuthDtos.AuthResponse login(AuthDtos.LoginRequest request) {
+        String identifier = request.identifier().trim();
         User user =
-                users.findByUsernameIgnoreCaseOrEmailIgnoreCase(
-                                request.identifier(), request.identifier())
+                users.findByUsernameIgnoreCaseOrEmailIgnoreCase(identifier, identifier)
                         .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
         if (!user.isEnabled()
                 || user.getPasswordHash() == null

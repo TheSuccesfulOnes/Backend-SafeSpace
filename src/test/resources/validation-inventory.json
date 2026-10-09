@@ -4,7 +4,7 @@
   "countingRule": "Each individual Surefire testcase is one case. Parameterized and dynamic invocations count individually. Assertion counts and code coverage percentages are not used.",
   "ownerCount": 45,
   "executedSuites": 59,
-  "executedCases": 958,
+  "executedCases": 965,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
@@ -1331,16 +1331,16 @@
     },
     {
       "source": "src/main/java/com/experimentos/backend/authentication/application/AuthService.java",
-      "caseCount": 31,
-      "unitCases": 23,
-      "integrationCases": 8,
+      "caseCount": 38,
+      "unitCases": 27,
+      "integrationCases": 11,
       "suites": [
         {
           "className": "com.experimentos.backend.validation.AuthServiceValidationTest",
           "testSource": "src/test/java/com/experimentos/backend/validation/AuthServiceValidationTest.java",
-          "caseCount": 20,
+          "caseCount": 23,
           "unitCases": 12,
-          "integrationCases": 8,
+          "integrationCases": 11,
           "failures": 0,
           "errors": 0,
           "skipped": 0,
@@ -1444,14 +1444,29 @@
               "name": "integration()[8]",
               "type": "integration",
               "result": "passed"
+            },
+            {
+              "name": "integration()[9]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[10]",
+              "type": "integration",
+              "result": "passed"
+            },
+            {
+              "name": "integration()[11]",
+              "type": "integration",
+              "result": "passed"
             }
           ]
         },
         {
           "className": "com.experimentos.backend.authentication.application.AuthServiceTest",
           "testSource": "src/test/java/com/experimentos/backend/authentication/application/AuthServiceTest.java",
-          "caseCount": 11,
-          "unitCases": 11,
+          "caseCount": 15,
+          "unitCases": 15,
           "integrationCases": 0,
           "failures": 0,
           "errors": 0,
@@ -1464,6 +1479,26 @@
             },
             {
               "name": "registerRejectsPasswordsExceedingBcryptByteLimit",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "loginNormalizesIdentifierWithoutChangingPassword(String)[1]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "loginNormalizesIdentifierWithoutChangingPassword(String)[2]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "loginNormalizesIdentifierWithoutChangingPassword(String)[3]",
+              "type": "unit",
+              "result": "passed"
+            },
+            {
+              "name": "loginNormalizesIdentifierWithoutChangingPassword(String)[4]",
               "type": "unit",
               "result": "passed"
             },
